@@ -8,11 +8,15 @@ class PropertyAnalyzer:
             r"modernisation", r"refurbishment", r"renovation", r"repair",
             r"development opportunity", r"investment opportunity", r"fixer upper",
             r"unmodernised", r"cash buyers", r"planning permission", r"freehold",
-            r"derelict", r"structural", r"project"
+            r"derelict", r"structural", r"project",
+            # New high priority keywords
+            r"auction", r"repossession", r"eviction", r"unlivable", r"fire damage",
+            r"water damage", r"vandalised", r"uninhabitable", r"condemned", r"dangerous",
+            r"unsafe", r"gutted", r"shell", r"squatters"
         ]
         self.negative_keywords = [
             r"shared ownership", r"leasehold", r"retirement", r"park home",
-            r"holiday home", r"student", r"auction" # Auction can be good, but often cash only/complex
+            r"holiday home", r"student"
         ]
 
     def analyze(self, properties: List[Property]) -> List[Property]:
@@ -32,7 +36,11 @@ class PropertyAnalyzer:
             # Keyword matching
             for keyword in self.positive_keywords:
                 if re.search(keyword, description_lower):
-                    score += 1.5
+                    # Boost specifically requested "distressed" keywords
+                    if keyword in [r"auction", r"eviction", r"unlivable", r"fire damage", r"repossession"]:
+                        score += 3
+                    else:
+                        score += 1.5
             
             # Penalize for unwanted types if they slipped through
             for keyword in self.negative_keywords:

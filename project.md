@@ -26,8 +26,11 @@ By leveraging web scraping technologies and local Artificial Intelligence (AI), 
 ### 3.2. AI & Smart Analysis
 - **Model Selection**: Use a lightweight, open-source model (e.g., Llama 3 via Ollama, or GPT4All) to run locally without API costs.
 - **Analysis Logic**:
-    - Analyze property descriptions for keywords and sentiment indicating "renovation required", "modernisation", "refurbishment", "potential to extend", or "development land".
-    - Assign an "Investment Score" (0-10) based on these factors.
+    - **High Priority**: "Unlivable", "Derelict", "Fire Damaged", "Structural Issues", "Repossession", "Auction".
+    - **Medium Priority**: "Modernisation", "Refurbishment", "Fixer Upper".
+    - **Logic**:
+        - Assign significantly higher scores (weight +3) to properties marked as unlivable or having structural issues, as these offer the best margins for a construction company.
+        - Assign standard scores (weight +1.5) to cosmetic fixers.
     - Filter out "Shared Ownership" or "Leasehold" if they slip through initial filters.
 
 ### 3.3. User Interface (CLI)
