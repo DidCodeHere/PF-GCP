@@ -23,6 +23,9 @@ const CONFIG = {
 let allProperties = [];
 let filteredProperties = [];
 let currentFilters = { ...CONFIG.defaultFilters };
+let displayedCount = 0;
+const BATCH_SIZE = 24;
+let debouncedApplyFilters;
 
 // DOM Elements
 const elements = {
@@ -50,19 +53,23 @@ document.addEventListener('DOMContentLoaded', init);
 
 async function init() {
     setupEventListeners();
+    setupInfiniteScroll();
     await loadProperties();
     updateNextRefreshCountdown(); // Start countdown
     setInterval(updateNextRefreshCountdown, 60000); // Update every minute
 }
 
 function setupEventListeners() {
+    // Initialize debounced filter function
+    debouncedApplyFilters = debounce(() => applyFilters(), 300);
+
     // Min Price slider
     if (elements.priceMin) {
         elements.priceMin.addEventListener('input', (e) => {
             const value = parseInt(e.target.value);
             elements.priceMinDisplay.textContent = formatPrice(value);
             currentFilters.minPrice = value;
-            applyFilters();
+            debouncedApplyFilters();
         });
     }
 
@@ -71,7 +78,7 @@ function setupEventListeners() {
         const value = parseInt(e.target.value);
         elements.priceMaxDisplay.textContent = formatPrice(value);
         currentFilters.maxPrice = value;
-        applyFilters();
+        debouncedApplyFilters();
     });
 
     // Score slider
@@ -79,7 +86,7 @@ function setupEventListeners() {
         const value = parseInt(e.target.value);
         elements.scoreMinDisplay.textContent = value;
         currentFilters.minScore = value;
-        applyFilters();
+        debouncedApplyFilters();
     });
 
     // Location dropdown
@@ -347,7 +354,23 @@ function renderProperties() {
     }
 
     elements.noResults.classList.add('hidden');
-    elements.resultsGrid.innerHTML = filteredProperties.map(renderPropertyCard).join('');
+    
+    // Reset pagination
+    displayedCount = 0;
+    elements.resultsGrid.innerHTML = '';
+    
+    // Render first batch
+    renderBatch();
+}
+
+function renderBatch() {
+    const nextBatch = filteredProperties.slice(displayedCount, displayedCount + BATCH_SIZE);
+    
+    if (nextBatch.length > 0) {
+        const html = nextBatch.map(renderPropertyCard).join('');
+        elements.resultsGrid.insertAdjacentHTML('beforeend', html);
+        displayedCount += nextBatch.length;
+    }
 }
 
 function renderPropertyCard(property) {
@@ -528,4 +551,51 @@ function showError() {
 
 function hideError() {
     elements.error.classList.add('hidden');
+}
+
+// Performance Utilities
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Infinite Scroll
+let observer;
+let sentinel;
+
+function setupInfiniteScroll() {
+    // Create sentinel element if it doesn't exist
+    if (!sentinel) {
+        sentinel = document.createElement('div');
+        sentinel.id = 'scroll-sentinel';
+        sentinel.style.height = '20px';
+        sentinel.style.width = '100%';
+        // Insert after results grid
+        elements.resultsGrid.parentNode.insertBefore(sentinel, elements.resultsGrid.nextSibling);
+    }
+
+    const options = {
+        root: null,
+        rootMargin: '200px',
+        threshold: 0.1
+    };
+
+    if (observer) observer.disconnect();
+
+    observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && displayedCount < filteredProperties.length) {
+                renderBatch();
+            }
+        });
+    }, options);
+
+    observer.observe(sentinel);
 }

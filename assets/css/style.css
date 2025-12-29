@@ -136,7 +136,7 @@ body {
 
 .main .container {
     display: grid;
-    grid-template-columns: 280px 1fr;
+    grid-template-columns: 300px 1fr;
     gap: 2rem;
     align-items: start;
 }
@@ -144,6 +144,12 @@ body {
 @media (max-width: 900px) {
     .main .container {
         grid-template-columns: 1fr;
+    }
+    
+    .filters-panel {
+        position: static;
+        max-height: none;
+        overflow-y: visible;
     }
 }
 
@@ -154,7 +160,25 @@ body {
     padding: 1.5rem;
     box-shadow: var(--shadow);
     position: sticky;
-    top: 1rem;
+    top: 2rem;
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--gray-300) transparent;
+}
+
+/* Custom Scrollbar for Webkit */
+.filters-panel::-webkit-scrollbar {
+    width: 6px;
+}
+
+.filters-panel::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.filters-panel::-webkit-scrollbar-thumb {
+    background-color: var(--gray-300);
+    border-radius: 20px;
 }
 
 .filters-panel h2 {
@@ -162,6 +186,12 @@ body {
     margin-bottom: 1.5rem;
     padding-bottom: 0.75rem;
     border-bottom: 2px solid var(--gray-100);
+    position: sticky;
+    top: -1.5rem;
+    background: white;
+    z-index: 10;
+    margin-top: -0.5rem;
+    padding-top: 0.5rem;
 }
 
 .filter-group {
