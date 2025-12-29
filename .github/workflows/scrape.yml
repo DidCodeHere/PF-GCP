@@ -12,9 +12,9 @@ on:
   workflow_dispatch:
     inputs:
       locations:
-        description: "Comma-separated locations to search"
+        description: "Comma-separated locations, or 'england' for nationwide (40+ cities)"
         required: false
-        default: "Liverpool,Manchester,Birmingham,Leeds,Sheffield"
+        default: "england"
       max_price:
         description: "Maximum property price"
         required: false
@@ -44,9 +44,9 @@ jobs:
 
       - name: Run scraper with timeout protection
         id: scrape
-        timeout-minutes: 20
+        timeout-minutes: 25
         env:
-          LOCATIONS: ${{ github.event.inputs.locations || 'Liverpool,Manchester,Birmingham,Leeds,Sheffield' }}
+          LOCATIONS: ${{ github.event.inputs.locations || 'england' }}
           MAX_PRICE: ${{ github.event.inputs.max_price || '100000' }}
         run: |
           python scripts/scrape_for_web.py \

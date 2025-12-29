@@ -26,14 +26,37 @@ from src.analyzer import PropertyAnalyzer
 from src.models import Property
 
 
-# Global timeout for entire script (15 minutes)
-SCRIPT_TIMEOUT = 15 * 60
+# Global timeout for entire script (25 minutes for nationwide)
+SCRIPT_TIMEOUT = 25 * 60
 
 # Timeout per location search (3 minutes)
 LOCATION_TIMEOUT = 3 * 60
 
 # Timeout per source (60 seconds)
 SOURCE_TIMEOUT = 60
+
+# Major English cities for comprehensive nationwide search
+# Covers all regions: North, Midlands, South, East, West
+ENGLAND_LOCATIONS = [
+    # North West
+    "Liverpool", "Manchester", "Preston", "Blackpool", "Bolton", "Wigan",
+    # North East
+    "Newcastle", "Sunderland", "Middlesbrough", "Durham",
+    # Yorkshire
+    "Leeds", "Sheffield", "Bradford", "Hull", "York", "Doncaster",
+    # East Midlands
+    "Nottingham", "Leicester", "Derby", "Lincoln",
+    # West Midlands
+    "Birmingham", "Coventry", "Wolverhampton", "Stoke-on-Trent",
+    # East of England
+    "Norwich", "Cambridge", "Ipswich", "Peterborough",
+    # South East
+    "Brighton", "Southampton", "Portsmouth", "Reading", "Oxford", "Milton Keynes",
+    # South West
+    "Bristol", "Plymouth", "Exeter", "Bournemouth", "Gloucester",
+    # London (cheaper outer boroughs)
+    "Croydon", "Barking", "Dagenham",
+]
 
 
 class TimeoutException(Exception):
@@ -160,8 +183,8 @@ def property_to_dict(prop: Property, search_location: str) -> Dict[str, Any]:
 
 def main():
     parser = argparse.ArgumentParser(description='Scrape properties for web interface')
-    parser.add_argument('--locations', type=str, default='Liverpool,Manchester',
-                        help='Comma-separated list of locations')
+    parser.add_argument('--locations', type=str, default='england',
+                        help='Comma-separated list of locations, or "england" for nationwide search')
     parser.add_argument('--max-price', type=int, default=100000,
                         help='Maximum property price')
     parser.add_argument('--output', type=str, default='data/properties.json',
@@ -174,15 +197,21 @@ def main():
         signal.signal(signal.SIGALRM, timeout_handler)
         signal.alarm(SCRIPT_TIMEOUT)
     
+    # Handle special "england" keyword for nationwide search
+    if args.locations.lower().strip() == 'england':
+        locations = ENGLAND_LOCATIONS
+        location_display = f"All England ({len(locations)} cities)"
+    else:
+        locations = [loc.strip() for loc in args.locations.split(',')]
+        location_display = args.locations
+    
     print(f"Smart Property Finder - Web Scraper")
     print(f"===================================")
-    print(f"Locations: {args.locations}")
+    print(f"Locations: {location_display}")
     print(f"Max Price: £{args.max_price:,}")
     print(f"Output: {args.output}")
     print(f"Script Timeout: {SCRIPT_TIMEOUT}s")
     print()
-    
-    locations = [loc.strip() for loc in args.locations.split(',')]
     
     scraper = Scraper()
     analyzer = PropertyAnalyzer()

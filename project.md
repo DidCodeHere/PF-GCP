@@ -30,6 +30,8 @@ By leveraging web scraping technologies (with optional API integration where ava
 - [x] **GitHub Actions Workflow**: Created `.github/workflows/scrape.yml` for automated daily scraping.
 - [x] **OnTheMarket Scraper**: Added new source `search_onthemarket()` method.
 - [x] **Nestoria API Scraper**: Implemented API-based scraper (currently disabled due to API SSL issues).
+- [x] **Exclude Auctions Filter**: Added web interface toggle to hide all auction properties with smart keyword detection.
+- [x] **Nationwide England Search**: Default search now covers 40+ major English cities across all regions.
 
 ## 3. Feature Requirements
 
@@ -152,6 +154,23 @@ Refactor the project to support a **Web Interface** hosted on **GitHub Pages**. 
 - [x] Create `scripts/scrape_for_web.py` with timeout protection.
 - [x] Ensure CLI remains functional alongside web interface.
 - [x] Add "Exclude All Auctions" quick filter toggle to web interface.
+- [x] Add nationwide "england" search mode covering 40+ cities across all regions.
+
+### 8.5 Nationwide Search Coverage
+
+When `--locations england` is specified (now the default), the scraper searches these cities:
+
+| Region          | Cities                                                            |
+| --------------- | ----------------------------------------------------------------- |
+| North West      | Liverpool, Manchester, Preston, Blackpool, Bolton, Wigan          |
+| North East      | Newcastle, Sunderland, Middlesbrough, Durham                      |
+| Yorkshire       | Leeds, Sheffield, Bradford, Hull, York, Doncaster                 |
+| East Midlands   | Nottingham, Leicester, Derby, Lincoln                             |
+| West Midlands   | Birmingham, Coventry, Wolverhampton, Stoke-on-Trent               |
+| East of England | Norwich, Cambridge, Ipswich, Peterborough                         |
+| South East      | Brighton, Southampton, Portsmouth, Reading, Oxford, Milton Keynes |
+| South West      | Bristol, Plymouth, Exeter, Bournemouth, Gloucester                |
+| Greater London  | Croydon, Barking, Dagenham (affordable outer boroughs)            |
 
 ---
 
@@ -279,9 +298,9 @@ Based on likelihood of having accessible APIs, investigate in this order:
 
 ### 10.4 Tasks
 
-- [ ] **Nestoria API**: Implement using confirmed public API.
+- [x] **Nestoria API**: Implemented (currently disabled due to API SSL issues server-side).
 - [ ] **Land Registry API**: Integrate for sold price validation/comparisons.
-- [ ] Implement `search_onthemarket()` method.
+- [x] Implement `search_onthemarket()` method.
 - [ ] Implement `search_boomin()` method.
 - [ ] Implement `search_purplebricks()` method.
 - [ ] Implement `search_sdl_auctions()` method.
@@ -370,3 +389,7 @@ Allow users to filter and customize via the web UI:
 
 - `src/scraper.py` - Added `search_onthemarket()` and `search_nestoria()` methods
 - `requirements.txt` - Added `httpx` dependency
+- `scripts/scrape_for_web.py` - Added nationwide England search (40+ cities)
+- `.github/workflows/scrape.yml` - Default changed to `england` for nationwide coverage
+- `assets/js/app.js` - Added `excludeAuctions` filter and `isAuctionProperty()` detection
+- `assets/css/style.css` - Added `.filter-highlight` and `.toggle-label` styles
