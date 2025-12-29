@@ -11,6 +11,9 @@ const CONFIG = {
         minPrice: 0,
         maxPrice: 150000,
         minScore: 0,
+        minRoi: 0,
+        minAreaPrice: 0,
+        minAreaRent: 0,
         postcode: '',
         excludeKeywords: '',
         types: ['house', 'flat'],
@@ -40,6 +43,12 @@ const elements = {
     priceMaxDisplay: document.getElementById('price-max-display'),
     scoreMin: document.getElementById('score-min'),
     scoreMinDisplay: document.getElementById('score-min-display'),
+    roiMin: document.getElementById('roi-min'),
+    roiMinDisplay: document.getElementById('roi-min-display'),
+    areaPriceMin: document.getElementById('area-price-min'),
+    areaPriceMinDisplay: document.getElementById('area-price-min-display'),
+    areaRentMin: document.getElementById('area-rent-min'),
+    areaRentMinDisplay: document.getElementById('area-rent-min-display'),
     sortBy: document.getElementById('sort-by'),
     resetFilters: document.getElementById('reset-filters'),
     resultsCount: document.getElementById('results-count'),
@@ -92,6 +101,36 @@ function setupEventListeners() {
         currentFilters.minScore = value;
         debouncedApplyFilters();
     });
+
+    // ROI slider
+    if (elements.roiMin) {
+        elements.roiMin.addEventListener('input', (e) => {
+            const value = parseFloat(e.target.value);
+            if (elements.roiMinDisplay) elements.roiMinDisplay.textContent = `${value}%`;
+            currentFilters.minRoi = value;
+            debouncedApplyFilters();
+        });
+    }
+
+    // Area avg price slider
+    if (elements.areaPriceMin) {
+        elements.areaPriceMin.addEventListener('input', (e) => {
+            const value = parseInt(e.target.value);
+            if (elements.areaPriceMinDisplay) elements.areaPriceMinDisplay.textContent = formatPrice(value);
+            currentFilters.minAreaPrice = value;
+            debouncedApplyFilters();
+        });
+    }
+
+    // Area avg rent slider
+    if (elements.areaRentMin) {
+        elements.areaRentMin.addEventListener('input', (e) => {
+            const value = parseInt(e.target.value);
+            if (elements.areaRentMinDisplay) elements.areaRentMinDisplay.textContent = formatPrice(value);
+            currentFilters.minAreaRent = value;
+            debouncedApplyFilters();
+        });
+    }
 
     // Location dropdown
     elements.locationFilter.addEventListener('change', () => {
@@ -269,6 +308,26 @@ function applyFilters() {
         const score = property.score || 0;
         if (score < currentFilters.minScore) return false;
 
+        // ROI filter
+        if (currentFilters.minRoi && currentFilters.minRoi > 0) {
+            const roi = property.roi;
+            if (typeof roi !== 'number') return false;
+            if (roi < currentFilters.minRoi) return false;
+        }
+
+        // Area stats filters
+        if (currentFilters.minAreaPrice && currentFilters.minAreaPrice > 0) {
+            const avgPrice = property.avg_area_price;
+            if (typeof avgPrice !== 'number') return false;
+            if (avgPrice < currentFilters.minAreaPrice) return false;
+        }
+
+        if (currentFilters.minAreaRent && currentFilters.minAreaRent > 0) {
+            const avgRent = property.avg_area_rent;
+            if (typeof avgRent !== 'number') return false;
+            if (avgRent < currentFilters.minAreaRent) return false;
+        }
+
         // Location filter
         if (selectedLocation && property.location !== selectedLocation) return false;
 
@@ -395,6 +454,16 @@ function sortProperties() {
 
     filteredProperties.sort((a, b) => {
         switch (sortBy) {
+            case 'roi-desc': {
+                const aRoi = (typeof a.roi === 'number') ? a.roi : -Infinity;
+                const bRoi = (typeof b.roi === 'number') ? b.roi : -Infinity;
+                return bRoi - aRoi;
+            }
+            case 'roi-asc': {
+                const aRoi = (typeof a.roi === 'number') ? a.roi : Infinity;
+                const bRoi = (typeof b.roi === 'number') ? b.roi : Infinity;
+                return aRoi - bRoi;
+            }
             case 'score-desc':
                 return (b.score || 0) - (a.score || 0);
             case 'price-asc':
@@ -440,6 +509,8 @@ function renderPropertyCard(property) {
     const price = property.price ? formatPrice(property.price) : (property.price_display || 'POA');
     const score = property.score || 0;
     const scoreClass = score >= 7 ? 'score-high' : score >= 4 ? 'score-medium' : 'score-low';
+
+    const imageUrl = (property.image_url || property.imageUrl || property.thumbnailUrl || '').toString().trim();
     
     const type = detectPropertyType(property);
     const condition = detectCondition(property);
@@ -486,6 +557,9 @@ function renderPropertyCard(property) {
 
     return `
         <article class="property-card">
+            <div class="card-image">
+                ${imageUrl ? `<img src="${escapeHtml(imageUrl)}" alt="Property image" loading="lazy">` : ''}
+            </div>
             <div class="card-header">
                 <span class="card-price">${price}</span>
                 <span class="card-score ${scoreClass}">⭐ ${score.toFixed(1)}</span>
@@ -517,10 +591,25 @@ function resetFilters() {
     elements.scoreMin.value = CONFIG.defaultFilters.minScore;
     elements.scoreMinDisplay.textContent = CONFIG.defaultFilters.minScore;
 
+    // Reset ROI/area sliders
+    if (elements.roiMin) {
+        elements.roiMin.value = CONFIG.defaultFilters.minRoi;
+        if (elements.roiMinDisplay) elements.roiMinDisplay.textContent = `${CONFIG.defaultFilters.minRoi}%`;
+    }
+    if (elements.areaPriceMin) {
+        elements.areaPriceMin.value = CONFIG.defaultFilters.minAreaPrice;
+        if (elements.areaPriceMinDisplay) elements.areaPriceMinDisplay.textContent = formatPrice(CONFIG.defaultFilters.minAreaPrice);
+    }
+    if (elements.areaRentMin) {
+        elements.areaRentMin.value = CONFIG.defaultFilters.minAreaRent;
+        if (elements.areaRentMinDisplay) elements.areaRentMinDisplay.textContent = formatPrice(CONFIG.defaultFilters.minAreaRent);
+    }
+
     // Reset dropdowns
     elements.locationFilter.value = '';
     if (elements.postcodeFilter) elements.postcodeFilter.value = '';
-    elements.sortBy.value = 'score-desc';
+    if (elements.excludeKeywords) elements.excludeKeywords.value = '';
+    elements.sortBy.value = 'roi-desc';
 
     // Reset checkboxes - types
     document.querySelectorAll('.filter-group:has(input[value="house"]) input').forEach(cb => {

@@ -12,6 +12,8 @@ By leveraging web scraping technologies (with optional API integration where ava
 
 > **Design Principle**: This project is designed to be **100% free** to run. No paid APIs, no hosting costs. GitHub Pages for the frontend, GitHub Actions for scheduled scraping, and free-tier LLMs for analysis.
 
+> **Update (Static Site Constraint)**: Because GitHub Pages is static, all “AI”/analysis must run during the data generation step (GitHub Actions / local runs). The current approach uses a **deterministic, rules-based scorer** (no paid APIs, no rate limits) and writes results into `data/properties.json`.
+
 ## 2. Work Done
 
 - [x] **Project Initialization**: Established repository structure and version control.
@@ -19,7 +21,7 @@ By leveraging web scraping technologies (with optional API integration where ava
 - [x] **Scraper Implementation**: Developed robust scraping modules for Rightmove and Zoopla using browser automation (Playwright).
 - [x] **Heuristic Analyzer**: Implemented keyword-based scoring system to identify renovation potential.
 - [x] **CLI Interface**: Created command-line entry points for user interaction using `typer` and `rich`.
-- [x] **AI Analyzer Engine**: Integrated `ollama` to use local LLMs (e.g., Llama 3) for semantic analysis of property descriptions.
+- [x] **AI Scoring (Deterministic)**: Implemented a strict, rules-based “AI” scorer that runs during data generation and persists `llm_score` + `llm_reasoning` into the JSON consumed by the static site.
 - [x] **Zoopla Support**: Added scraping capabilities for Zoopla to expand property search.
 - [x] **Auction Integration**: Added scrapers for Auction House UK and Pugh & Co to find distressed assets.
 - [x] **Smart Radius**: Implemented auto-expanding search radius if initial results are low.
@@ -43,6 +45,10 @@ By leveraging web scraping technologies (with optional API integration where ava
 - [x] **Tenure Filter**: Added freehold/leasehold filter checkboxes to web interface.
 - [x] **Scrape Speed Optimization**: Refactored scraping logic to run auction searches nationwide once, significantly reducing redundant requests.
 - [x] **Advanced Deduplication**: Implemented URL-based deduplication to ensure unique property listings across multiple sources.
+- [x] **Exclude Keywords Filter**: Added an “Exclude Keywords” input to remove listings containing user-entered terms (title/description matching).
+- [x] **ROI Enrichment**: Added market enrichment step to compute `avg_area_price`, `avg_area_rent`, and `roi` per listing.
+- [x] **ROI-First Sorting + Filters**: Added ROI sorting (default) and filters for ROI + area averages (sale price, rent).
+- [x] **Listing Images (Best-Effort)**: Added `image_url` support to scrapers/export and rendered images on property cards when available.
 
 ## 3. Feature Requirements
 
@@ -58,7 +64,7 @@ By leveraging web scraping technologies (with optional API integration where ava
 
 ### 3.2. AI & Smart Analysis
 
-- **Model Selection**: Use a lightweight, open-source model (e.g., Llama 3 via Ollama, or GPT4All) to run locally without API costs.
+- **Model Selection**: For the GitHub Pages workflow, use a deterministic rules-based scorer (runs in CI/local) so the site stays free, fast, and rate-limit-proof.
 - **Analysis Logic**:
   - **High Priority**: "Unlivable", "Derelict", "Fire Damaged", "Structural Issues", "Repossession", "Auction".
   - **Medium Priority**: "Modernisation", "Refurbishment", "Fixer Upper".

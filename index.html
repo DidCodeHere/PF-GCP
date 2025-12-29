@@ -91,6 +91,24 @@
                 </div>
 
                 <div class="filter-group">
+                    <label for="roi-min">Min ROI (%)</label>
+                    <input type="range" id="roi-min" min="0" max="25" step="0.5" value="0">
+                    <span id="roi-min-display">0%</span>
+                </div>
+
+                <div class="filter-group">
+                    <label for="area-price-min">Min Area Avg Sale Price</label>
+                    <input type="range" id="area-price-min" min="0" max="600000" step="10000" value="0">
+                    <span id="area-price-min-display">£0</span>
+                </div>
+
+                <div class="filter-group">
+                    <label for="area-rent-min">Min Area Avg Rent (pcm)</label>
+                    <input type="range" id="area-rent-min" min="0" max="3000" step="50" value="0">
+                    <span id="area-rent-min-display">£0</span>
+                </div>
+
+                <div class="filter-group">
                     <label>Property Type</label>
                     <div class="checkbox-group">
                         <label><input type="checkbox" value="house" checked> Houses</label>
@@ -142,6 +160,8 @@
                 <div class="filter-group">
                     <label for="sort-by">Sort By</label>
                     <select id="sort-by">
+                        <option value="roi-desc">Highest ROI</option>
+                        <option value="roi-asc">Lowest ROI</option>
                         <option value="score-desc">Highest Score</option>
                         <option value="price-asc">Lowest Price</option>
                         <option value="price-desc">Highest Price</option>

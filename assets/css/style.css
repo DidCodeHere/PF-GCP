@@ -449,6 +449,22 @@ body {
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
+.card-image {
+    height: 180px;
+    background: var(--gray-100);
+}
+
+.card-image:empty {
+    display: none;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
 .property-card:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-lg);

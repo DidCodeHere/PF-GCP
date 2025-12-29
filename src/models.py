@@ -20,6 +20,7 @@ class Property:
     avg_area_price: Optional[float] = None
     avg_area_rent: Optional[float] = None
     roi: Optional[float] = None
+    image_url: Optional[str] = None
 
     def __post_init__(self):
         if not self.price_display:

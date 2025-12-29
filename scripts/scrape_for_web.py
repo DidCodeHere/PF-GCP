@@ -233,6 +233,7 @@ def property_to_dict(prop: Property, search_location: str) -> Dict[str, Any]:
         "ai_summary": prop.ai_summary,
         "llm_score": prop.llm_score,
         "llm_reasoning": prop.llm_reasoning,
+        "image_url": getattr(prop, 'image_url', None),
         "location": search_location
     }
 
@@ -299,51 +300,55 @@ def main():
     llm = LLMAnalyzer()
     print(f"\n[*] Running strict AI scoring on top candidates...")
 
-    # Sort by heuristic score first to prioritize best candidates
-    all_properties.sort(key=lambda x: x.investment_score, reverse=True)
+    # all_properties is a list of dictionaries (export-ready)
+    all_properties.sort(key=lambda x: x.get('score', 0) or 0, reverse=True)
 
     # Analyze top 200 to keep runtime reasonable
     for i, prop in enumerate(all_properties[:200]):
         if (i + 1) % 25 == 0:
             print(f"    Analyzing {i+1}/200...")
 
-        result = llm.analyze_property(prop.__dict__)
-        prop.llm_score = result['score']
-        prop.llm_reasoning = result['reasoning']
+        result = llm.analyze_property(prop)
+        prop['llm_score'] = result.get('score')
+        prop['llm_reasoning'] = result.get('reasoning')
 
         # Very conservative boost to avoid pushing everything to 10
-        if prop.llm_score >= 10:
-            prop.investment_score += 1
-        elif prop.llm_score >= 9:
-            prop.investment_score += 0.5
+        try:
+            base_score = float(prop.get('score', 0) or 0)
+            llm_score = float(prop.get('llm_score', 0) or 0)
+        except Exception:
+            base_score = prop.get('score', 0) or 0
+            llm_score = prop.get('llm_score', 0) or 0
+
+        if llm_score >= 10:
+            prop['score'] = base_score + 1
+        elif llm_score >= 9:
+            prop['score'] = base_score + 0.5
     
     # Deduplicate again (cross-location and cross-source)
     seen_ids = set()
     seen_urls = set()
     unique_properties = []
-    
+
     for prop in all_properties:
-        # Convert to dict if it's an object (LLM analysis keeps them as objects)
-        if hasattr(prop, '__dict__'):
-            prop_dict = prop.__dict__
-        else:
-            prop_dict = prop
-            
-        pid = prop_dict['id']
-        url = prop_dict['url']
-        
+        pid = prop.get('id')
+        url = prop.get('url')
+
+        if not pid or not url:
+            continue
+
         # Check both ID and URL for duplicates
         if pid in seen_ids:
             continue
         if url in seen_urls:
             continue
-            
+
         seen_ids.add(pid)
         seen_urls.add(url)
         unique_properties.append(prop)
-    
+
     # Sort by score descending
-    unique_properties.sort(key=lambda x: x.get('score', 0), reverse=True)
+    unique_properties.sort(key=lambda x: x.get('score', 0) or 0, reverse=True)
     
     # Build output data
     output_data = {

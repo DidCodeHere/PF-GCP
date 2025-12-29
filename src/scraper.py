@@ -140,6 +140,50 @@ class Scraper:
                         
                         href = p_data.get('propertyUrl', f"/properties/{prop_id}")
                         url = f"https://www.rightmove.co.uk{href}"
+
+                        # Best-effort: try to capture a listing thumbnail/image URL
+                        image_url = None
+                        try:
+                            # Common patterns observed in Next.js data
+                            for key in ['imageUrl', 'imageURL', 'propertyImageUrl', 'propertyImageURL', 'thumbnailUrl', 'thumbnailURL']:
+                                if isinstance(p_data.get(key), str) and p_data.get(key).strip():
+                                    image_url = p_data.get(key).strip()
+                                    break
+
+                            if not image_url:
+                                # Sometimes nested under propertyImages
+                                prop_images = p_data.get('propertyImages')
+                                if isinstance(prop_images, dict):
+                                    for key in ['mainImageSrc', 'mainImageUrl', 'mainImageURL', 'imageUrl', 'imageURL']:
+                                        val = prop_images.get(key)
+                                        if isinstance(val, str) and val.strip():
+                                            image_url = val.strip()
+                                            break
+                                    if not image_url:
+                                        images = prop_images.get('images')
+                                        if isinstance(images, list) and images:
+                                            first = images[0]
+                                            if isinstance(first, dict):
+                                                for key in ['srcUrl', 'srcURL', 'url', 'imageUrl', 'imageURL']:
+                                                    val = first.get(key)
+                                                    if isinstance(val, str) and val.strip():
+                                                        image_url = val.strip()
+                                                        break
+                                elif isinstance(prop_images, list) and prop_images:
+                                    first = prop_images[0]
+                                    if isinstance(first, dict):
+                                        for key in ['srcUrl', 'srcURL', 'url', 'imageUrl', 'imageURL']:
+                                            val = first.get(key)
+                                            if isinstance(val, str) and val.strip():
+                                                image_url = val.strip()
+                                                break
+                                    elif isinstance(first, str) and first.strip():
+                                        image_url = first.strip()
+
+                            if isinstance(image_url, str) and image_url.startswith('//'):
+                                image_url = 'https:' + image_url
+                        except Exception:
+                            image_url = None
                         
                         prop = Property(
                             id=prop_id,
@@ -149,7 +193,8 @@ class Scraper:
                             url=url,
                             description=description,
                             tenure=tenure,
-                            agent=agent
+                            agent=agent,
+                            image_url=image_url
                         )
                         properties.append(prop)
                         
@@ -335,6 +380,14 @@ class Scraper:
                                 title = p_data.get('title', 'Property')
                                 price_str = p_data.get('price', '0')
                                 price = self._parse_price(price_str)
+
+                                image_url = None
+                                for key in ['imageUrl', 'imageURL', 'mainImageUrl', 'mainImageURL', 'thumbnailUrl', 'thumbnailURL']:
+                                    if isinstance(p_data.get(key), str) and p_data.get(key).strip():
+                                        image_url = p_data.get(key).strip()
+                                        break
+                                if isinstance(image_url, str) and image_url.startswith('//'):
+                                    image_url = 'https:' + image_url
                                 
                                 # Description might be short or missing in this JSON
                                 description = title + " " + p_data.get('features', '') # Features is sometimes a list
@@ -355,7 +408,8 @@ class Scraper:
                                     url=url,
                                     description=description,
                                     tenure="Unknown", # Zoopla JSON often doesn't have tenure in the list view
-                                    agent=p_data.get('branch', {}).get('name', 'Unknown')
+                                    agent=p_data.get('branch', {}).get('name', 'Unknown'),
+                                    image_url=image_url
                                 )
                                 properties.append(prop)
                             except Exception as e:
