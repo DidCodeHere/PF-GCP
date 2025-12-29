@@ -1,10 +1,12 @@
-# Project White Paper: Smart Property Finder
+# Project White Paper: GCP Investment Finder
 
 ## 1. Executive Summary
 
-The **Smart Property Finder** is a tool designed for construction companies and property investors. Its primary mission is to automate the discovery of high-potential, low-cost investment opportunities in the UK property market. Specifically, it targets freehold properties (flats, houses, land) under £100,000 that require renovation or development.
+The **GCP Investment Finder** (formerly Smart Property Finder) is a tool designed for construction companies and property investors. Its primary mission is to automate the discovery of high-potential, low-cost investment opportunities in the UK property market. Specifically, it targets freehold properties (flats, houses, land) under £100,000 that require renovation or development.
 
 The system is available both as a **Command-Line Interface (CLI)** for power users and a **Web Interface** hosted on GitHub Pages for broader accessibility.
+
+**Repository**: [https://github.com/DidCodeHere/PF-GCP](https://github.com/DidCodeHere/PF-GCP)
 
 By leveraging web scraping technologies (with optional API integration where available) and Artificial Intelligence (AI), the system identifies properties that traditional filters might miss, focusing on description analysis to find "fixer-uppers" and development deals.
 
