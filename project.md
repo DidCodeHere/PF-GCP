@@ -155,6 +155,8 @@ Refactor the project to support a **Web Interface** hosted on **GitHub Pages**. 
 - [x] Ensure CLI remains functional alongside web interface.
 - [x] Add "Exclude All Auctions" quick filter toggle to web interface.
 - [x] Add nationwide "england" search mode covering 40+ cities across all regions.
+- [x] Add data freshness panel showing "Last Updated" and "Next Refresh" countdown.
+- [x] Add manual refresh button linking to GitHub Actions workflow.
 
 ### 8.5 Nationwide Search Coverage
 

@@ -17,6 +17,22 @@
                 <h1 class="logo">🏠 Smart Property Finder</h1>
                 <p class="tagline">Find undervalued UK investment properties</p>
             </div>
+            <div class="data-freshness">
+                <div class="freshness-item">
+                    <span class="freshness-label">📅 Last Updated</span>
+                    <span id="header-last-updated" class="freshness-value">Loading...</span>
+                </div>
+                <div class="freshness-item">
+                    <span class="freshness-label">⏰ Next Refresh</span>
+                    <span id="next-refresh" class="freshness-value">Calculating...</span>
+                </div>
+                <a href="https://github.com/AY-0101/PF-GCP/actions/workflows/scrape.yml" 
+                   target="_blank" 
+                   class="btn btn-refresh"
+                   title="Trigger manual refresh (requires GitHub access)">
+                    🔄 Manual Refresh
+                </a>
+            </div>
         </div>
     </header>
 
@@ -125,8 +141,8 @@
 
     <footer class="footer">
         <div class="container">
-            <p>Smart Property Finder &copy; 2025 | Data refreshed daily via GitHub Actions</p>
-            <p><a href="https://github.com/your-repo" target="_blank">View on GitHub</a> | 100% Free & Open Source</p>
+            <p>Smart Property Finder &copy; 2025 | Data refreshed daily at 6 AM UTC via GitHub Actions</p>
+            <p><a href="https://github.com/AY-0101/PF-GCP" target="_blank">View on GitHub</a> | 100% Free & Open Source</p>
         </div>
     </footer>
 

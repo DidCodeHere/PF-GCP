@@ -33,6 +33,8 @@ const elements = {
     resetFilters: document.getElementById('reset-filters'),
     resultsCount: document.getElementById('results-count'),
     lastUpdated: document.getElementById('last-updated'),
+    headerLastUpdated: document.getElementById('header-last-updated'),
+    nextRefresh: document.getElementById('next-refresh'),
     loading: document.getElementById('loading'),
     error: document.getElementById('error'),
     noResults: document.getElementById('no-results'),
@@ -45,6 +47,8 @@ document.addEventListener('DOMContentLoaded', init);
 async function init() {
     setupEventListeners();
     await loadProperties();
+    updateNextRefreshCountdown(); // Start countdown
+    setInterval(updateNextRefreshCountdown, 60000); // Update every minute
 }
 
 function setupEventListeners() {
@@ -136,9 +140,17 @@ async function loadProperties() {
         
         // Update last updated timestamp
         if (data.lastUpdated) {
-            elements.lastUpdated.textContent = formatDate(data.lastUpdated);
+            const formattedDate = formatDate(data.lastUpdated);
+            const relativeTime = formatRelativeTime(data.lastUpdated);
+            elements.lastUpdated.textContent = formattedDate;
+            if (elements.headerLastUpdated) {
+                elements.headerLastUpdated.textContent = relativeTime;
+            }
         } else {
             elements.lastUpdated.textContent = 'Unknown';
+            if (elements.headerLastUpdated) {
+                elements.headerLastUpdated.textContent = 'Unknown';
+            }
         }
 
         // Populate location filter
@@ -386,6 +398,53 @@ function formatDate(dateString) {
         });
     } catch {
         return dateString;
+    }
+}
+
+function formatRelativeTime(dateString) {
+    try {
+        const date = new Date(dateString);
+        const now = new Date();
+        const diffMs = now - date;
+        const diffMins = Math.floor(diffMs / 60000);
+        const diffHours = Math.floor(diffMs / 3600000);
+        const diffDays = Math.floor(diffMs / 86400000);
+        
+        if (diffMins < 1) return 'Just now';
+        if (diffMins < 60) return `${diffMins}m ago`;
+        if (diffHours < 24) return `${diffHours}h ago`;
+        if (diffDays === 1) return 'Yesterday';
+        if (diffDays < 7) return `${diffDays} days ago`;
+        return formatDate(dateString);
+    } catch {
+        return dateString;
+    }
+}
+
+function updateNextRefreshCountdown() {
+    // GitHub Actions runs at 6 AM UTC daily
+    const now = new Date();
+    const nextRefresh = new Date(now);
+    nextRefresh.setUTCHours(6, 0, 0, 0);
+    
+    // If it's past 6 AM UTC today, next refresh is tomorrow
+    if (now.getUTCHours() >= 6) {
+        nextRefresh.setUTCDate(nextRefresh.getUTCDate() + 1);
+    }
+    
+    const diffMs = nextRefresh - now;
+    const diffHours = Math.floor(diffMs / 3600000);
+    const diffMins = Math.floor((diffMs % 3600000) / 60000);
+    
+    let text;
+    if (diffHours > 0) {
+        text = `${diffHours}h ${diffMins}m`;
+    } else {
+        text = `${diffMins}m`;
+    }
+    
+    if (elements.nextRefresh) {
+        elements.nextRefresh.textContent = text;
     }
 }
 
