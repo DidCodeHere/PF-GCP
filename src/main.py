@@ -18,7 +18,8 @@ def search(
     limit: int = typer.Option(10, help="Number of results to show"),
     use_llm: bool = typer.Option(None, help="Use Local LLM for deeper analysis (slower)"),
     source: str = typer.Option("all", help="Source to scrape: 'rightmove', 'zoopla', 'auction', or 'all'"),
-    exclude_land: bool = typer.Option(None, help="Strictly exclude land/plots from results")
+    exclude_land: bool = typer.Option(None, help="Strictly exclude land/plots from results"),
+    csv: bool = typer.Option(False, help="Save results to CSV automatically")
 ):
     """
     Search for investment properties under a certain price.
@@ -102,6 +103,18 @@ def search(
                 pugh_props = scraper.search_pugh(location, current_radius, max_price)
                 properties.extend(pugh_props)
                 progress.remove_task(task_p)
+
+                # SDL Auctions
+                task_sdl = progress.add_task(description=f"Scraping SDL Auctions...", total=None)
+                sdl_props = scraper.search_sdl_auctions(location, current_radius, max_price)
+                properties.extend(sdl_props)
+                progress.remove_task(task_sdl)
+
+                # Allsop Auctions
+                task_allsop = progress.add_task(description=f"Scraping Allsop Auctions...", total=None)
+                allsop_props = scraper.search_allsop(location, current_radius, max_price)
+                properties.extend(allsop_props)
+                progress.remove_task(task_allsop)
             
             # Check if we have enough non-land properties
             non_land_count = sum(1 for p in properties if not analyzer.is_land(p))
@@ -186,7 +199,7 @@ def search(
     console.print(table)
     
     # Save CSV option
-    if typer.confirm("Do you want to save these results to a CSV?"):
+    if csv or typer.confirm("Do you want to save these results to a CSV?"):
         import pandas as pd
         df = pd.DataFrame([vars(p) for p in analyzed_props])
         filename = f"investment_opps_{location}_{max_price}.csv"

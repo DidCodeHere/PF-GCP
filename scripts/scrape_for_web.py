@@ -58,6 +58,22 @@ ENGLAND_LOCATIONS = [
     "Croydon", "Barking", "Dagenham",
 ]
 
+# Define source groups
+LOCATION_SOURCES = [
+    ('search_rightmove', 'Rightmove'),
+    ('search_zoopla', 'Zoopla'),
+    ('search_onthemarket', 'OnTheMarket'),
+    ('search_boomin', 'Boomin'),
+    ('search_purplebricks', 'Purplebricks'),
+]
+
+NATIONWIDE_SOURCES = [
+    ('search_auction_house', 'Auction House'),
+    ('search_pugh', 'Pugh Auctions'),
+    ('search_sdl_auctions', 'SDL Auctions'),
+    ('search_allsop', 'Allsop Auctions'),
+]
+
 
 class TimeoutException(Exception):
     """Raised when an operation times out."""
@@ -100,6 +116,55 @@ def search_with_timeout(scraper: Scraper, method_name: str, location: str, radiu
         return []
 
 
+def scrape_nationwide(scraper: Scraper, analyzer: PropertyAnalyzer, max_price: int) -> List[Dict[str, Any]]:
+    """
+    Scrape nationwide sources once.
+    
+    Args:
+        scraper: Scraper instance
+        analyzer: PropertyAnalyzer instance
+        max_price: Maximum price filter
+        
+    Returns:
+        List of property dictionaries
+    """
+    print(f"\n{'='*50}")
+    print(f"[*] Searching Nationwide Sources")
+    print(f"{'='*50}")
+    
+    all_properties = []
+    radius = 0.0  # Not used for nationwide
+    
+    for method_name, source_name in NATIONWIDE_SOURCES:
+        print(f"   [{source_name}]...")
+        # Pass empty location for nationwide search
+        props = search_with_timeout(scraper, method_name, "", radius, max_price)
+        print(f"   [{source_name}] Found {len(props)} properties")
+        all_properties.extend(props)
+    
+    # Deduplicate by ID
+    seen_ids = set()
+    unique_properties = []
+    for prop in all_properties:
+        if prop.id not in seen_ids:
+            seen_ids.add(prop.id)
+            unique_properties.append(prop)
+    
+    print(f"   Total unique nationwide: {len(unique_properties)}")
+    
+    # Analyze and score
+    try:
+        analyzed_props = analyzer.analyze(unique_properties, exclude_land=False)
+    except Exception as e:
+        print(f"   [!] Error during analysis: {e}")
+        analyzed_props = unique_properties
+    
+    # Convert to dictionaries
+    analyzed = [property_to_dict(prop, "Nationwide") for prop in analyzed_props]
+    
+    return analyzed
+
+
 def scrape_location(scraper: Scraper, analyzer: PropertyAnalyzer, location: str, max_price: int) -> List[Dict[str, Any]]:
     """
     Scrape all sources for a single location.
@@ -120,18 +185,8 @@ def scrape_location(scraper: Scraper, analyzer: PropertyAnalyzer, location: str,
     all_properties = []
     radius = 5.0  # Default radius
     
-    # Search each source with timeout
-    # Note: Nestoria API is currently down (SSL issues), disabled for now
-    sources = [
-        ('search_rightmove', 'Rightmove'),
-        ('search_zoopla', 'Zoopla'),
-        ('search_onthemarket', 'OnTheMarket'),
-        ('search_auction_house', 'Auction House'),
-        ('search_pugh', 'Pugh Auctions'),
-        # ('search_nestoria', 'Nestoria (API)'),  # Disabled - API down
-    ]
-    
-    for method_name, source_name in sources:
+    # Search each location-based source
+    for method_name, source_name in LOCATION_SOURCES:
         print(f"   [{source_name}]...")
         props = search_with_timeout(scraper, method_name, location, radius, max_price)
         print(f"   [{source_name}] Found {len(props)} properties")
@@ -218,6 +273,16 @@ def main():
     
     all_properties = []
     
+    # 1. Run Nationwide Search (once)
+    try:
+        props = scrape_nationwide(scraper, analyzer, args.max_price)
+        all_properties.extend(props)
+    except TimeoutException:
+        print(f"[!] Timeout during nationwide search")
+    except Exception as e:
+        print(f"[!] Error during nationwide search: {e}")
+    
+    # 2. Run Location-based Search
     for location in locations:
         try:
             props = scrape_location(scraper, analyzer, location, args.max_price)
@@ -229,13 +294,24 @@ def main():
             print(f"[!] Error searching {location}: {e}")
             continue
     
-    # Deduplicate again (cross-location)
+    # Deduplicate again (cross-location and cross-source)
     seen_ids = set()
+    seen_urls = set()
     unique_properties = []
+    
     for prop in all_properties:
-        if prop['id'] not in seen_ids:
-            seen_ids.add(prop['id'])
-            unique_properties.append(prop)
+        pid = prop['id']
+        url = prop['url']
+        
+        # Check both ID and URL for duplicates
+        if pid in seen_ids:
+            continue
+        if url in seen_urls:
+            continue
+            
+        seen_ids.add(pid)
+        seen_urls.add(url)
+        unique_properties.append(prop)
     
     # Sort by score descending
     unique_properties.sort(key=lambda x: x.get('score', 0), reverse=True)

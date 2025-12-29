@@ -165,11 +165,13 @@ class Scraper:
             finally:
                 browser.close()
 
-    def search_auction_house(self, location: str, radius: float, max_price: int = 100000) -> List[Property]:
+    def search_auction_house(self, location: str = "", radius: float = 0, max_price: int = 100000) -> List[Property]:
         """
         Scrapes Auction House UK for properties.
+        If location is empty, searches nationwide.
         """
-        print(f"[*] Searching Auction House UK for {location}...")
+        location_display = location if location else "Nationwide"
+        print(f"[*] Searching Auction House UK for {location_display}...")
         
         with sync_playwright() as p:
             browser = p.chromium.launch(headless=True)
@@ -182,7 +184,10 @@ class Scraper:
             try:
                 # Use the search URL that works: /auction/search-results?keyword=Location
                 base_url = "https://www.auctionhouse.co.uk/auction/search-results"
-                url = f"{base_url}?keyword={location}"
+                if location:
+                    url = f"{base_url}?keyword={location}"
+                else:
+                    url = base_url
                 
                 print(f"   Navigating to {url}...")
                 page.goto(url, wait_until="domcontentloaded")
@@ -430,11 +435,13 @@ class Scraper:
             finally:
                 browser.close()
 
-    def search_pugh(self, location: str, radius: float, max_price: int = 100000) -> List[Property]:
+    def search_pugh(self, location: str = "", radius: float = 0, max_price: int = 100000) -> List[Property]:
         """
         Scrapes Pugh & Co Auctions.
+        If location is empty, searches nationwide.
         """
-        print(f"[*] Searching Pugh Auctions for {location} (Radius: {radius}m)...")
+        location_display = location if location else "Nationwide"
+        print(f"[*] Searching Pugh Auctions for {location_display}...")
         
         with sync_playwright() as p:
             browser = p.chromium.launch(headless=True)
@@ -449,10 +456,10 @@ class Scraper:
                 # Pugh radius seems to be in miles.
                 # URL seen in debug: property-search?location=Liverpool&property-type=&radius=3...
                 
-                # Map our radius to Pugh's likely allowed values if needed, or just pass it.
-                # Let's assume it takes an integer or float.
-                
-                url = f"https://www.pugh-auctions.com/property-search?location={location}&radius={radius}&include-sold=off"
+                if location:
+                    url = f"https://www.pugh-auctions.com/property-search?location={location}&radius={radius}&include-sold=off"
+                else:
+                    url = "https://www.pugh-auctions.com/property-search?include-sold=off"
                 
                 print(f"   Navigating to {url}...")
                 page.goto(url, wait_until="domcontentloaded", timeout=30000)
@@ -761,6 +768,426 @@ class Scraper:
 
             except Exception as e:
                 print(f"[!] OnTheMarket Scraper Error: {e}")
+                return []
+            finally:
+                browser.close()
+
+    def search_boomin(self, location: str, radius: float, max_price: int = 100000) -> List[Property]:
+        """
+        Search Boomin property portal.
+        
+        Boomin is a newer UK property portal launched in 2021.
+        Uses Playwright for scraping.
+        """
+        print(f"[*] Searching Boomin for {location} (<£{max_price})...")
+        
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True)
+            context = browser.new_context(
+                user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            )
+            page = context.new_page()
+            page.set_default_timeout(self.default_timeout)
+
+            try:
+                # Boomin URL structure
+                # https://www.boomin.com/properties/for-sale?location=liverpool&maxPrice=100000
+                location_slug = location.lower().replace(' ', '-')
+                url = f"https://www.boomin.com/properties/for-sale?location={location_slug}&maxPrice={max_price}"
+                
+                print(f"   Navigating to {url}...")
+                page.goto(url, wait_until="domcontentloaded")
+                
+                # Handle cookies
+                try:
+                    page.locator("button:has-text('Accept')").click(timeout=2000)
+                except:
+                    pass
+                
+                page.wait_for_timeout(2000)
+                
+                properties = []
+                content = page.content()
+                soup = BeautifulSoup(content, 'html.parser')
+                
+                # Try to find property cards
+                cards = page.locator("[data-testid='property-card'], .property-card, article.property").all()
+                
+                if not cards:
+                    # Try generic approach
+                    cards = page.locator("a[href*='/properties/']").all()
+                
+                for card in cards[:50]:  # Limit to 50
+                    try:
+                        # Get the card's outer HTML or parent
+                        text = card.inner_text()
+                        lines = [l.strip() for l in text.split('\n') if l.strip()]
+                        
+                        # Extract link
+                        href = card.get_attribute("href")
+                        if not href:
+                            link_el = card.locator("a[href*='/properties/']").first
+                            href = link_el.get_attribute("href") if link_el.count() else None
+                        
+                        if not href:
+                            continue
+                        
+                        prop_url = f"https://www.boomin.com{href}" if href.startswith("/") else href
+                        prop_id = href.split("/")[-1] if href else f"boomin-{hash(text)}"
+                        
+                        price = 0.0
+                        price_display = "POA"
+                        title = "Property"
+                        address = "Unknown"
+                        
+                        for line in lines:
+                            if "£" in line:
+                                price_display = line
+                                price = self._parse_price(line)
+                            elif "bed" in line.lower() or "bedroom" in line.lower():
+                                title = line
+                            elif any(x in line.lower() for x in [',', 'road', 'street', 'lane', 'avenue', 'drive']):
+                                if len(line) > 5:
+                                    address = line
+                        
+                        if price > max_price and price > 0:
+                            continue
+                        
+                        prop = Property(
+                            id=prop_id,
+                            title=title,
+                            address=address,
+                            price=price if price > 0 else None,
+                            url=prop_url,
+                            description=text[:500],
+                            tenure="Unknown",
+                            agent="Boomin",
+                            price_display=price_display
+                        )
+                        properties.append(prop)
+                        
+                    except Exception:
+                        continue
+                
+                print(f"   Found {len(properties)} properties on Boomin.")
+                return properties
+
+            except Exception as e:
+                print(f"[!] Boomin Scraper Error: {e}")
+                return []
+            finally:
+                browser.close()
+
+    def search_purplebricks(self, location: str, radius: float, max_price: int = 100000) -> List[Property]:
+        """
+        Search Purplebricks property portal.
+        
+        Purplebricks is a major UK online estate agent.
+        Uses Playwright for scraping.
+        """
+        print(f"[*] Searching Purplebricks for {location} (<£{max_price})...")
+        
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True)
+            context = browser.new_context(
+                user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            )
+            page = context.new_page()
+            page.set_default_timeout(self.default_timeout)
+
+            try:
+                # Purplebricks URL structure
+                # https://www.purplebricks.co.uk/search/property-for-sale/liverpool?maxPrice=100000
+                location_slug = location.lower().replace(' ', '-')
+                url = f"https://www.purplebricks.co.uk/search/property-for-sale/{location_slug}?maxPrice={max_price}"
+                
+                print(f"   Navigating to {url}...")
+                page.goto(url, wait_until="domcontentloaded")
+                
+                # Handle cookies
+                try:
+                    page.locator("button:has-text('Accept')").click(timeout=2000)
+                except:
+                    pass
+                
+                page.wait_for_timeout(2000)
+                
+                properties = []
+                
+                # Purplebricks typically uses data attributes or specific class names
+                cards = page.locator("[data-testid='property-card'], .property-card, .listing-card").all()
+                
+                if not cards:
+                    # Try generic link-based approach
+                    cards = page.locator("a[href*='/property/']").all()
+                
+                for card in cards[:50]:
+                    try:
+                        text = card.inner_text()
+                        lines = [l.strip() for l in text.split('\n') if l.strip()]
+                        
+                        href = card.get_attribute("href")
+                        if not href:
+                            link_el = card.locator("a[href*='/property/']").first
+                            href = link_el.get_attribute("href") if link_el.count() else None
+                        
+                        if not href:
+                            continue
+                        
+                        prop_url = f"https://www.purplebricks.co.uk{href}" if href.startswith("/") else href
+                        prop_id = href.split("/")[-1] if href else f"pb-{hash(text)}"
+                        
+                        price = 0.0
+                        price_display = "POA"
+                        title = "Property"
+                        address = "Unknown"
+                        
+                        for line in lines:
+                            if "£" in line:
+                                price_display = line
+                                price = self._parse_price(line)
+                            elif "bed" in line.lower():
+                                title = line
+                            elif any(x in line.lower() for x in [',', 'road', 'street', 'lane', 'avenue', 'drive']):
+                                if len(line) > 5:
+                                    address = line
+                        
+                        if price > max_price and price > 0:
+                            continue
+                        
+                        prop = Property(
+                            id=prop_id,
+                            title=title,
+                            address=address,
+                            price=price if price > 0 else None,
+                            url=prop_url,
+                            description=text[:500],
+                            tenure="Unknown",
+                            agent="Purplebricks",
+                            price_display=price_display
+                        )
+                        properties.append(prop)
+                        
+                    except Exception:
+                        continue
+                
+                print(f"   Found {len(properties)} properties on Purplebricks.")
+                return properties
+
+            except Exception as e:
+                print(f"[!] Purplebricks Scraper Error: {e}")
+                return []
+            finally:
+                browser.close() = "", radius: float = 0, max_price: int = 150000) -> List[Property]:
+        """
+        Search SDL Property Auctions.
+        
+        SDL is one of the UK's largest property auctioneers, handling 2000+ lots per year.
+        Uses Playwright for scraping.
+        If location is empty, searches nationwide.
+        """
+        location_display = location if location else "Nationwide"
+        print(f"[*] Searching SDL Auctions for {location_display} (<£{max_price})...")
+        
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True)
+            context = browser.new_context(
+                user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            )
+            page = context.new_page()
+            page.set_default_timeout(self.default_timeout)
+
+            try:
+                # SDL Auctions URL structure
+                # https://www.sdlauctions.co.uk/property-search/?location=liverpool&price_max=150000
+                if location:
+                    location_slug = location.lower().replace(' ', '+')
+                    url = f"https://www.sdlauctions.co.uk/property-search/?location={location_slug}&price_max={max_price}"
+                else:
+                    url = f"https://www.sdlauctions.co.uk/property-search/?0000
+                location_slug = location.lower().replace(' ', '+')
+                url = f"https://www.sdlauctions.co.uk/property-search/?location={location_slug}&price_max={max_price}"
+                
+                print(f"   Navigating to {url}...")
+                page.goto(url, wait_until="domcontentloaded")
+                
+                # Handle cookies
+                try:
+                    page.locator("button:has-text('Accept')").click(timeout=2000)
+                except:
+                    pass
+                
+                page.wait_for_timeout(2000)
+                
+                properties = []
+                
+                # SDL uses property cards with lot information
+                cards = page.locator(".property-card, .lot-card, article[class*='property']").all()
+                
+                if not cards:
+                    cards = page.locator("a[href*='/property/'], a[href*='/lot/']").all()
+                
+                for card in cards[:50]:
+                    try:
+                        text = card.inner_text()
+                        lines = [l.strip() for l in text.split('\n') if l.strip()]
+                        
+                        href = card.get_attribute("href")
+                        if not href:
+                            link_el = card.locator("a[href*='/property/'], a[href*='/lot/']").first
+                            href = link_el.get_attribute("href") if link_el.count() else None
+                        
+                        if not href:
+                            continue
+                        
+                        prop_url = f"https://www.sdlauctions.co.uk{href}" if href.startswith("/") else href
+                        prop_id = f"sdl-{href.split('/')[-1]}" if href else f"sdl-{hash(text)}"
+                        
+                        price = 0.0
+                        price_display = "Guide Price TBC"
+                        title = "Auction Property"
+                        address = "Unknown"
+                        
+                        for line in lines:
+                            if "£" in line or "guide" in line.lower():
+                                price_display = line
+                                price = self._parse_price(line)
+                            elif "bed" in line.lower() or "lot" in line.lower():
+                                title = line
+                            elif any(x in line.lower() for x in [',', 'road', 'street', 'lane', 'avenue']):
+                                if len(line) > 5:
+                                    address = line
+                        
+                        if price > max_price and price > 0:
+                            continue
+                        
+                        prop = Property(
+                            id=prop_id,
+                            title=title,
+                            address=address,
+                            price=price if price > 0 else None,
+                            url=prop_url,
+                            description=text[:500],
+                            tenure="Auction",
+                            agent="SDL Auctions",
+                            price_display=price_display
+                        )
+                        properties.append(prop)
+                        
+                    except Exception:
+                        continue
+                
+                print(f"   Found {len(properties)} properties on SDL Auctions.")
+                return properties
+
+            except Exception as e:
+                print(f"[!] SDL Auctions  = "", radius: float = 0, max_price: int = 150000) -> List[Property]:
+        """
+        Search Allsop Auctions.
+        
+        Allsop is a major UK auction house dealing in residential and commercial properties.
+        Uses Playwright for scraping.
+        If location is empty, searches nationwide.
+        """
+        location_display = location if location else "Nationwide"
+        print(f"[*] Searching Allsop Auctions for {location_display} (<£{max_price})...")
+        
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True)
+            context = browser.new_context(
+                user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            )
+            page = context.new_page()
+            page.set_default_timeout(self.default_timeout)
+
+            try:
+                # Allsop URL structure - they have a search page
+                # https://www.allsop.co.uk/search-results/?keyword=liverpool&price_to=150000&type=residential
+                if location:
+                    location_slug = location.lower().replace(' ', '+')
+                    url = f"https://www.allsop.co.uk/search-results/?keyword={location_slug}&price_to={max_price}&type=residential"
+                else:
+                    url = f"https://www.allsop.co.uk/search-results/?
+            try:
+                # Allsop URL structure - they have a search page
+                # https://www.allsop.co.uk/search-results/?keyword=liverpool&price_to=150000&type=residential
+                location_slug = location.lower().replace(' ', '+')
+                url = f"https://www.allsop.co.uk/search-results/?keyword={location_slug}&price_to={max_price}&type=residential"
+                
+                print(f"   Navigating to {url}...")
+                page.goto(url, wait_until="domcontentloaded")
+                
+                # Handle cookies
+                try:
+                    page.locator("button:has-text('Accept'), #onetrust-accept-btn-handler").click(timeout=2000)
+                except:
+                    pass
+                
+                page.wait_for_timeout(2000)
+                
+                properties = []
+                
+                # Allsop uses lot cards
+                cards = page.locator(".lot-card, .property-item, article[class*='lot']").all()
+                
+                if not cards:
+                    cards = page.locator("a[href*='/lot/'], a[href*='/property/']").all()
+                
+                for card in cards[:50]:
+                    try:
+                        text = card.inner_text()
+                        lines = [l.strip() for l in text.split('\n') if l.strip()]
+                        
+                        href = card.get_attribute("href")
+                        if not href:
+                            link_el = card.locator("a[href*='/lot/'], a[href*='/property/']").first
+                            href = link_el.get_attribute("href") if link_el.count() else None
+                        
+                        if not href:
+                            continue
+                        
+                        prop_url = f"https://www.allsop.co.uk{href}" if href.startswith("/") else href
+                        prop_id = f"allsop-{href.split('/')[-1]}" if href else f"allsop-{hash(text)}"
+                        
+                        price = 0.0
+                        price_display = "Guide Price TBC"
+                        title = "Auction Lot"
+                        address = "Unknown"
+                        
+                        for line in lines:
+                            if "£" in line or "guide" in line.lower():
+                                price_display = line
+                                price = self._parse_price(line)
+                            elif "bed" in line.lower() or "lot" in line.lower():
+                                title = line
+                            elif any(x in line.lower() for x in [',', 'road', 'street', 'lane', 'avenue']):
+                                if len(line) > 5:
+                                    address = line
+                        
+                        if price > max_price and price > 0:
+                            continue
+                        
+                        prop = Property(
+                            id=prop_id,
+                            title=title,
+                            address=address,
+                            price=price if price > 0 else None,
+                            url=prop_url,
+                            description=text[:500],
+                            tenure="Auction",
+                            agent="Allsop",
+                            price_display=price_display
+                        )
+                        properties.append(prop)
+                        
+                    except Exception:
+                        continue
+                
+                print(f"   Found {len(properties)} properties on Allsop.")
+                return properties
+
+            except Exception as e:
+                print(f"[!] Allsop Scraper Error: {e}")
                 return []
             finally:
                 browser.close()

@@ -8,11 +8,13 @@ const CONFIG = {
     dataUrl: 'data/properties.json',
     refreshInterval: null, // No auto-refresh for static site
     defaultFilters: {
-        maxPrice: 100000,
+        minPrice: 0,
+        maxPrice: 150000,
         minScore: 0,
         types: ['house', 'flat'],
         conditions: ['distressed', 'fixer', 'standard'],
-        sources: ['rightmove', 'zoopla', 'onthemarket', 'auction'],
+        sources: ['rightmove', 'zoopla', 'onthemarket', 'boomin', 'purplebricks', 'auction'],
+        tenures: ['freehold', 'leasehold', 'unknown'],
         excludeAuctions: false
     }
 };
@@ -25,6 +27,8 @@ let currentFilters = { ...CONFIG.defaultFilters };
 // DOM Elements
 const elements = {
     locationFilter: document.getElementById('location-filter'),
+    priceMin: document.getElementById('price-min'),
+    priceMinDisplay: document.getElementById('price-min-display'),
     priceMax: document.getElementById('price-max'),
     priceMaxDisplay: document.getElementById('price-max-display'),
     scoreMin: document.getElementById('score-min'),
@@ -52,7 +56,17 @@ async function init() {
 }
 
 function setupEventListeners() {
-    // Price slider
+    // Min Price slider
+    if (elements.priceMin) {
+        elements.priceMin.addEventListener('input', (e) => {
+            const value = parseInt(e.target.value);
+            elements.priceMinDisplay.textContent = formatPrice(value);
+            currentFilters.minPrice = value;
+            applyFilters();
+        });
+    }
+
+    // Max Price slider
     elements.priceMax.addEventListener('input', (e) => {
         const value = parseInt(e.target.value);
         elements.priceMaxDisplay.textContent = formatPrice(value);
@@ -95,6 +109,12 @@ function updateCheckboxFilters() {
     currentFilters.types = [];
     document.querySelectorAll('.filter-group:has(input[value="house"]) input:checked').forEach(cb => {
         currentFilters.types.push(cb.value);
+    });
+
+    // Tenures
+    currentFilters.tenures = [];
+    document.querySelectorAll('.filter-group:has(input[value="freehold"]) input:checked').forEach(cb => {
+        currentFilters.tenures.push(cb.value);
     });
 
     // Conditions
@@ -184,9 +204,12 @@ function applyFilters() {
     const selectedLocation = elements.locationFilter.value;
 
     filteredProperties = allProperties.filter(property => {
-        // Price filter
+        // Price filter (min and max)
         const price = property.price || 0;
-        if (price > currentFilters.maxPrice && price > 0) return false;
+        if (price > 0) {
+            if (price < currentFilters.minPrice) return false;
+            if (price > currentFilters.maxPrice) return false;
+        }
 
         // Score filter
         const score = property.score || 0;
@@ -198,6 +221,10 @@ function applyFilters() {
         // Type filter
         const type = detectPropertyType(property);
         if (!currentFilters.types.includes(type)) return false;
+
+        // Tenure filter
+        const tenure = detectTenure(property);
+        if (!currentFilters.tenures.includes(tenure)) return false;
 
         // Condition filter
         const condition = detectCondition(property);
@@ -218,6 +245,14 @@ function applyFilters() {
 
     // Render
     renderProperties();
+}
+
+function detectTenure(property) {
+    const tenure = (property.tenure || '').toLowerCase();
+    
+    if (tenure.includes('freehold')) return 'freehold';
+    if (tenure.includes('leasehold')) return 'leasehold';
+    return 'unknown';
 }
 
 function detectPropertyType(property) {
@@ -250,6 +285,8 @@ function detectSource(property) {
     if (url.includes('rightmove') || agent.includes('rightmove')) return 'rightmove';
     if (url.includes('zoopla') || agent.includes('zoopla')) return 'zoopla';
     if (url.includes('onthemarket')) return 'onthemarket';
+    if (url.includes('boomin') || agent.includes('boomin')) return 'boomin';
+    if (url.includes('purplebricks') || agent.includes('purplebricks')) return 'purplebricks';
     if (url.includes('auction') || agent.includes('auction') || agent.includes('pugh')) return 'auction';
     return 'rightmove'; // Default
 }
@@ -344,6 +381,10 @@ function renderPropertyCard(property) {
 
 function resetFilters() {
     // Reset sliders
+    if (elements.priceMin) {
+        elements.priceMin.value = CONFIG.defaultFilters.minPrice;
+        elements.priceMinDisplay.textContent = formatPrice(CONFIG.defaultFilters.minPrice);
+    }
     elements.priceMax.value = CONFIG.defaultFilters.maxPrice;
     elements.priceMaxDisplay.textContent = formatPrice(CONFIG.defaultFilters.maxPrice);
     elements.scoreMin.value = CONFIG.defaultFilters.minScore;
@@ -356,6 +397,11 @@ function resetFilters() {
     // Reset checkboxes - types
     document.querySelectorAll('.filter-group:has(input[value="house"]) input').forEach(cb => {
         cb.checked = CONFIG.defaultFilters.types.includes(cb.value);
+    });
+
+    // Reset checkboxes - tenures
+    document.querySelectorAll('.filter-group:has(input[value="freehold"]) input').forEach(cb => {
+        cb.checked = CONFIG.defaultFilters.tenures.includes(cb.value);
     });
 
     // Reset checkboxes - conditions

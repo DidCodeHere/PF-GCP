@@ -51,9 +51,15 @@
                 </div>
 
                 <div class="filter-group">
+                    <label for="price-min">Min Price</label>
+                    <input type="range" id="price-min" min="0" max="200000" step="5000" value="0">
+                    <span id="price-min-display">£0</span>
+                </div>
+
+                <div class="filter-group">
                     <label for="price-max">Max Price</label>
-                    <input type="range" id="price-max" min="0" max="150000" step="5000" value="100000">
-                    <span id="price-max-display">£100,000</span>
+                    <input type="range" id="price-max" min="0" max="200000" step="5000" value="150000">
+                    <span id="price-max-display">£150,000</span>
                 </div>
 
                 <div class="filter-group">
@@ -68,6 +74,15 @@
                         <label><input type="checkbox" value="house" checked> Houses</label>
                         <label><input type="checkbox" value="flat" checked> Flats</label>
                         <label><input type="checkbox" value="land"> Land</label>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <label>Tenure</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" value="freehold" checked> Freehold</label>
+                        <label><input type="checkbox" value="leasehold" checked> Leasehold</label>
+                        <label><input type="checkbox" value="unknown" checked> Unknown</label>
                     </div>
                 </div>
 
@@ -96,6 +111,8 @@
                         <label><input type="checkbox" value="rightmove" checked> Rightmove</label>
                         <label><input type="checkbox" value="zoopla" checked> Zoopla</label>
                         <label><input type="checkbox" value="onthemarket" checked> OnTheMarket</label>
+                        <label><input type="checkbox" value="boomin" checked> Boomin</label>
+                        <label><input type="checkbox" value="purplebricks" checked> Purplebricks</label>
                         <label><input type="checkbox" value="auction" checked> Auctions</label>
                     </div>
                 </div>

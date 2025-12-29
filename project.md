@@ -32,6 +32,15 @@ By leveraging web scraping technologies (with optional API integration where ava
 - [x] **Nestoria API Scraper**: Implemented API-based scraper (currently disabled due to API SSL issues).
 - [x] **Exclude Auctions Filter**: Added web interface toggle to hide all auction properties with smart keyword detection.
 - [x] **Nationwide England Search**: Default search now covers 40+ major English cities across all regions.
+- [x] **Boomin Scraper**: Added `search_boomin()` method for the newer UK property portal.
+- [x] **Purplebricks Scraper**: Added `search_purplebricks()` for the major online estate agent.
+- [x] **Price Range Expansion**: Increased default max price to £150,000 for broader coverage.
+- [x] **SDL Auctions Scraper**: Added `search_sdl_auctions()` for one of UK's largest auctioneers.
+- [x] **Allsop Auctions Scraper**: Added `search_allsop()` for major UK auction house.
+- [x] **Min Price Filter**: Added minimum price slider to web interface.
+- [x] **Tenure Filter**: Added freehold/leasehold filter checkboxes to web interface.
+- [x] **Scrape Speed Optimization**: Refactored scraping logic to run auction searches nationwide once, significantly reducing redundant requests.
+- [x] **Advanced Deduplication**: Implemented URL-based deduplication to ensure unique property listings across multiple sources.
 
 ## 3. Feature Requirements
 
@@ -39,7 +48,7 @@ By leveraging web scraping technologies (with optional API integration where ava
 
 - **Search Capabilities**:
   - Input: Location (Postcode or Town) and Search Radius (miles).
-  - Filters: Max Price (£100,000), Tenure (Freehold), Property Type (Houses, Flats, Land).
+  - Filters: Max Price (£150,000), Tenure (Freehold), Property Type (Houses, Flats, Land).
 - **Data Acquisition (Scraping)**:
   - Must handle dynamic HTML content (Single Page Applications).
   - Resilience against basic anti-scraping measures (User-Agent rotation, rate limiting).
@@ -303,10 +312,10 @@ Based on likelihood of having accessible APIs, investigate in this order:
 - [x] **Nestoria API**: Implemented (currently disabled due to API SSL issues server-side).
 - [ ] **Land Registry API**: Integrate for sold price validation/comparisons.
 - [x] Implement `search_onthemarket()` method.
-- [ ] Implement `search_boomin()` method.
-- [ ] Implement `search_purplebricks()` method.
-- [ ] Implement `search_sdl_auctions()` method.
-- [ ] Implement `search_allsop()` method.
+- [x] Implement `search_boomin()` method.
+- [x] Implement `search_purplebricks()` method.
+- [x] Implement `search_sdl_auctions()` method.
+- [x] Implement `search_allsop()` method.
 - [ ] Create a `SourceManager` class for plug-and-play source registration.
 - [ ] Add source health monitoring (detect when a scraper breaks).
 - [ ] Build API audit script to test each source for JSON endpoints.
@@ -342,13 +351,13 @@ All LLM options must be **completely free** (no credit card required, no pay-per
 
 Allow users to filter and customize via the web UI:
 
-- **Price Range**: Min/Max sliders.
-- **Property Type**: Checkboxes (House, Flat, Land, Commercial).
-- **Condition Tags**: Distressed, Fixer Upper, Ready to Rent, New Build.
-- **Tenure**: Freehold only, Leasehold included.
-- **Score Threshold**: Only show properties above X score.
+- **Price Range**: ✅ **Implemented** - Min/Max sliders.
+- **Property Type**: ✅ **Implemented** - Checkboxes (House, Flat, Land).
+- **Condition Tags**: ✅ **Implemented** - Distressed, Fixer Upper, Standard.
+- **Tenure**: ✅ **Implemented** - Freehold, Leasehold, Unknown filters.
+- **Score Threshold**: ✅ **Implemented** - Only show properties above X score.
 - **Custom Keywords**: User-defined positive/negative keywords.
-- **Exclude Auctions**: ✅ **Implemented** - Quick toggle to hide all auction properties (detects by source URL, agent name, and keywords like "guide price", "lot", etc.).
+- **Exclude Auctions**: ✅ **Implemented** - Quick toggle to hide all auction properties.
 
 ### 11.4 Tasks
 
