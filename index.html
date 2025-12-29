@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Property Finder | UK Investment Properties</title>
+    <meta name="description" content="Find undervalued UK properties for investment. Search Rightmove, Zoopla, and auction houses for fixer-uppers and distressed properties.">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">🏠 Smart Property Finder</h1>
+                <p class="tagline">Find undervalued UK investment properties</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <!-- Filter Panel -->
+            <section class="filters-panel">
+                <h2>Search & Filter</h2>
+                
+                <div class="filter-group">
+                    <label for="location-filter">Location</label>
+                    <select id="location-filter">
+                        <option value="">All Locations</option>
+                        <!-- Populated dynamically -->
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="price-max">Max Price</label>
+                    <input type="range" id="price-max" min="0" max="150000" step="5000" value="100000">
+                    <span id="price-max-display">£100,000</span>
+                </div>
+
+                <div class="filter-group">
+                    <label for="score-min">Min Score</label>
+                    <input type="range" id="score-min" min="0" max="10" step="1" value="0">
+                    <span id="score-min-display">0</span>
+                </div>
+
+                <div class="filter-group">
+                    <label>Property Type</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" value="house" checked> Houses</label>
+                        <label><input type="checkbox" value="flat" checked> Flats</label>
+                        <label><input type="checkbox" value="land"> Land</label>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <label>Condition</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" value="distressed" checked> Distressed</label>
+                        <label><input type="checkbox" value="fixer" checked> Fixer Upper</label>
+                        <label><input type="checkbox" value="standard" checked> Standard</label>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <label>Source</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" value="rightmove" checked> Rightmove</label>
+                        <label><input type="checkbox" value="zoopla" checked> Zoopla</label>
+                        <label><input type="checkbox" value="auction" checked> Auctions</label>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <label for="sort-by">Sort By</label>
+                    <select id="sort-by">
+                        <option value="score-desc">Highest Score</option>
+                        <option value="price-asc">Lowest Price</option>
+                        <option value="price-desc">Highest Price</option>
+                    </select>
+                </div>
+
+                <button id="reset-filters" class="btn btn-secondary">Reset Filters</button>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section">
+                <div class="results-header">
+                    <h2>Properties <span id="results-count">(0)</span></h2>
+                    <p class="last-updated">Last updated: <span id="last-updated">Loading...</span></p>
+                </div>
+
+                <div id="loading" class="loading">
+                    <div class="spinner"></div>
+                    <p>Loading properties...</p>
+                </div>
+
+                <div id="error" class="error hidden">
+                    <p>⚠️ Unable to load properties. Please try again later.</p>
+                </div>
+
+                <div id="no-results" class="no-results hidden">
+                    <p>No properties match your filters. Try adjusting your criteria.</p>
+                </div>
+
+                <div id="results-grid" class="results-grid">
+                    <!-- Property cards inserted here by JavaScript -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Smart Property Finder &copy; 2025 | Data refreshed daily via GitHub Actions</p>
+            <p><a href="https://github.com/your-repo" target="_blank">View on GitHub</a> | 100% Free & Open Source</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/app.js"></script>
+</body>
+</html>

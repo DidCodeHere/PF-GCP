@@ -3,6 +3,4 @@ beautifulsoup4
 typer
 rich
 requests
-fake-useragent
-pandas
-textblob
+httpx

@@ -1,0 +1,17 @@
+venv/
+__pycache__/
+*.pyc
+*.csv
+.env
+.pytest_cache/
+tests/.pytest_cache/
+
+# Debug files
+debug_*.py
+debug_*.html
+
+# Local screenshots
+*.png
+
+# Keep data folder but ignore local test data
+# data/ files are committed for GitHub Pages
