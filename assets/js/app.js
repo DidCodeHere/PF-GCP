@@ -12,7 +12,8 @@ const CONFIG = {
         minScore: 0,
         types: ['house', 'flat'],
         conditions: ['distressed', 'fixer', 'standard'],
-        sources: ['rightmove', 'zoopla', 'auction']
+        sources: ['rightmove', 'zoopla', 'onthemarket', 'auction'],
+        excludeAuctions: false
     }
 };
 
@@ -103,6 +104,19 @@ function updateCheckboxFilters() {
     document.querySelectorAll('.filter-group:has(input[value="rightmove"]) input:checked').forEach(cb => {
         currentFilters.sources.push(cb.value);
     });
+
+    // Exclude Auctions toggle
+    const excludeAuctionsCheckbox = document.getElementById('exclude-auctions');
+    currentFilters.excludeAuctions = excludeAuctionsCheckbox ? excludeAuctionsCheckbox.checked : false;
+    
+    // If exclude auctions is checked, also uncheck the auction source
+    if (currentFilters.excludeAuctions) {
+        const auctionCheckbox = document.querySelector('.filter-group:has(input[value="rightmove"]) input[value="auction"]');
+        if (auctionCheckbox) {
+            auctionCheckbox.checked = false;
+            currentFilters.sources = currentFilters.sources.filter(s => s !== 'auction');
+        }
+    }
 }
 
 async function loadProperties() {
@@ -181,6 +195,9 @@ function applyFilters() {
         const source = detectSource(property);
         if (!currentFilters.sources.includes(source)) return false;
 
+        // Exclude auctions filter
+        if (currentFilters.excludeAuctions && isAuctionProperty(property)) return false;
+
         return true;
     });
 
@@ -220,8 +237,29 @@ function detectSource(property) {
 
     if (url.includes('rightmove') || agent.includes('rightmove')) return 'rightmove';
     if (url.includes('zoopla') || agent.includes('zoopla')) return 'zoopla';
+    if (url.includes('onthemarket')) return 'onthemarket';
     if (url.includes('auction') || agent.includes('auction') || agent.includes('pugh')) return 'auction';
     return 'rightmove'; // Default
+}
+
+function isAuctionProperty(property) {
+    const source = detectSource(property);
+    const agent = (property.agent || '').toLowerCase();
+    const title = (property.title || '').toLowerCase();
+    const desc = (property.description || '').toLowerCase();
+    
+    // Check if source is auction
+    if (source === 'auction') return true;
+    
+    // Check for auction keywords in agent, title, or description
+    const auctionKeywords = ['auction', 'auctioneer', 'lot ', 'guide price', 'reserve price'];
+    for (const keyword of auctionKeywords) {
+        if (agent.includes(keyword) || title.includes(keyword) || desc.includes(keyword)) {
+            return true;
+        }
+    }
+    
+    return false;
 }
 
 function sortProperties() {
@@ -317,6 +355,12 @@ function resetFilters() {
     document.querySelectorAll('.filter-group:has(input[value="rightmove"]) input').forEach(cb => {
         cb.checked = CONFIG.defaultFilters.sources.includes(cb.value);
     });
+
+    // Reset exclude auctions toggle
+    const excludeAuctionsCheckbox = document.getElementById('exclude-auctions');
+    if (excludeAuctionsCheckbox) {
+        excludeAuctionsCheckbox.checked = CONFIG.defaultFilters.excludeAuctions;
+    }
 
     // Reset state
     currentFilters = { ...CONFIG.defaultFilters };

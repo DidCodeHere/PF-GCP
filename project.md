@@ -151,6 +151,7 @@ Refactor the project to support a **Web Interface** hosted on **GitHub Pages**. 
 - [x] Set up GitHub Actions workflow to run scraper daily and commit updated JSON.
 - [x] Create `scripts/scrape_for_web.py` with timeout protection.
 - [x] Ensure CLI remains functional alongside web interface.
+- [x] Add "Exclude All Auctions" quick filter toggle to web interface.
 
 ---
 
@@ -326,12 +327,14 @@ Allow users to filter and customize via the web UI:
 - **Tenure**: Freehold only, Leasehold included.
 - **Score Threshold**: Only show properties above X score.
 - **Custom Keywords**: User-defined positive/negative keywords.
+- **Exclude Auctions**: ✅ **Implemented** - Quick toggle to hide all auction properties (detects by source URL, agent name, and keywords like "guide price", "lot", etc.).
 
 ### 11.4 Tasks
 
 - [ ] Integrate Groq API as a free cloud LLM option.
 - [ ] Create LLM provider abstraction (`LLMProvider` interface).
 - [x] Build filter panel component for web interface.
+- [x] Add "Exclude All Auctions" quick filter with smart detection.
 - [ ] Allow users to save filter presets.
 - [ ] Implement real-time re-scoring when filters change.
 
