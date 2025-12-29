@@ -148,7 +148,9 @@ async function loadProperties() {
     hideError();
 
     try {
-        const response = await fetch(CONFIG.dataUrl);
+        // Add timestamp to prevent caching
+        const url = `${CONFIG.dataUrl}?t=${new Date().getTime()}`;
+        const response = await fetch(url);
         
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -174,7 +176,7 @@ async function loadProperties() {
         }
 
         // Populate location filter
-        populateLocationFilter();
+        populateLocationFilter(data.locations);
 
         // Apply initial filters
         applyFilters();
@@ -187,9 +189,16 @@ async function loadProperties() {
     }
 }
 
-function populateLocationFilter() {
-    const locations = [...new Set(allProperties.map(p => p.location).filter(Boolean))];
-    locations.sort();
+function populateLocationFilter(providedLocations) {
+    let locations;
+    
+    if (providedLocations && Array.isArray(providedLocations) && providedLocations.length > 0) {
+        locations = providedLocations;
+    } else {
+        // Fallback to extracting from properties
+        locations = [...new Set(allProperties.map(p => p.location).filter(Boolean))];
+        locations.sort();
+    }
 
     elements.locationFilter.innerHTML = '<option value="">All Locations</option>';
     locations.forEach(loc => {
