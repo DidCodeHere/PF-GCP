@@ -4,3 +4,4 @@ typer
 rich
 requests
 httpx
+google-generativeai

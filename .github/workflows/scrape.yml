@@ -23,7 +23,7 @@ on:
 jobs:
   scrape:
     runs-on: ubuntu-latest
-    timeout-minutes: 30 # Global timeout to prevent runaway jobs
+    timeout-minutes: 120 # Increased to 2 hours to allow for enrichment
 
     steps:
       - name: Checkout repository
@@ -42,9 +42,9 @@ jobs:
           playwright install chromium
           playwright install-deps
 
-      - name: Run scraper with timeout protection
+      - name: Run scraper
         id: scrape
-        timeout-minutes: 25
+        timeout-minutes: 60
         env:
           LOCATIONS: ${{ github.event.inputs.locations || 'england' }}
           MAX_PRICE: ${{ github.event.inputs.max_price || '100000' }}
@@ -54,11 +54,16 @@ jobs:
             --max-price "$MAX_PRICE" \
             --output data/properties.json
 
+      - name: Enrich data with ROI stats
+        timeout-minutes: 60
+        run: |
+          python scripts/enrich_data.py
+
       - name: Commit and push if changed
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add data/properties.json
+          git add data/properties.json data/area_stats_cache.json
 
           # Check if there are changes to commit
           if git diff --staged --quiet; then

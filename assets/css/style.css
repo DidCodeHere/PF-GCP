@@ -67,36 +67,84 @@ body {
     font-size: 1.1rem;
 }
 
-/* Data Freshness Panel */
-.data-freshness {
+/* Stats Box */
+.stats-box {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 1.5rem;
+    gap: 2rem;
     background: rgba(255, 255, 255, 0.15);
-    padding: 0.75rem 1.5rem;
+    padding: 1rem 2rem;
     border-radius: var(--radius);
     backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.freshness-item {
+.project-info-box {
+    margin-top: 1.5rem;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1.25rem;
+    border-radius: var(--radius);
+    max-width: 800px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.project-info-box h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: white;
+    font-weight: 600;
+}
+
+.project-info-box p {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.5;
+}
+
+.project-info-box strong {
+    color: #fff;
+    font-weight: 600;
+}
+
+.stat-item {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.25rem;
 }
 
-.freshness-label {
+.stat-label {
     font-size: 0.75rem;
-    opacity: 0.8;
+    opacity: 0.9;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.9);
 }
 
-.freshness-value {
+.stat-value {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: white;
+}
+
+.stat-link {
+    color: white;
+    text-decoration: none;
     font-weight: 600;
-    font-size: 0.95rem;
+    border-bottom: 1px dashed rgba(255,255,255,0.5);
+    transition: all 0.2s;
+}
+
+.stat-link:hover {
+    border-bottom-style: solid;
+    opacity: 0.9;
+}
+
+.creator-item .stat-value {
+    font-size: 1rem;
 }
 
 .btn-refresh {
@@ -529,6 +577,51 @@ body {
 
 .card-link:hover {
     background: var(--primary-dark);
+}
+
+/* ROI Section in Card */
+.card-roi {
+    background: var(--gray-100);
+    padding: 0.75rem;
+    border-radius: var(--radius);
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.roi-metric {
+    display: flex;
+    flex-direction: column;
+}
+
+.roi-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--gray-500);
+    font-weight: 600;
+}
+
+.roi-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--gray-900);
+}
+
+.roi-value.text-success {
+    color: var(--success);
+}
+
+.roi-value.text-warning {
+    color: var(--warning);
+}
+
+.roi-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-size: 0.8rem;
+    color: var(--gray-500);
 }
 
 /* Footer */

@@ -11,6 +11,8 @@ const CONFIG = {
         minPrice: 0,
         maxPrice: 150000,
         minScore: 0,
+        postcode: '',
+        excludeKeywords: '',
         types: ['house', 'flat'],
         conditions: ['distressed', 'fixer', 'standard'],
         sources: ['rightmove', 'zoopla', 'onthemarket', 'boomin', 'purplebricks', 'auction'],
@@ -30,6 +32,8 @@ let debouncedApplyFilters;
 // DOM Elements
 const elements = {
     locationFilter: document.getElementById('location-filter'),
+    postcodeFilter: document.getElementById('postcode-filter'),
+    excludeKeywords: document.getElementById('exclude-keywords'),
     priceMin: document.getElementById('price-min'),
     priceMinDisplay: document.getElementById('price-min-display'),
     priceMax: document.getElementById('price-max'),
@@ -93,6 +97,22 @@ function setupEventListeners() {
     elements.locationFilter.addEventListener('change', () => {
         applyFilters();
     });
+
+    // Postcode input
+    if (elements.postcodeFilter) {
+        elements.postcodeFilter.addEventListener('input', (e) => {
+            currentFilters.postcode = e.target.value;
+            debouncedApplyFilters();
+        });
+    }
+
+    // Exclude Keywords input
+    if (elements.excludeKeywords) {
+        elements.excludeKeywords.addEventListener('input', (e) => {
+            currentFilters.excludeKeywords = e.target.value;
+            debouncedApplyFilters();
+        });
+    }
 
     // Sort dropdown
     elements.sortBy.addEventListener('change', () => {
@@ -185,6 +205,9 @@ async function loadProperties() {
         // Populate location filter
         populateLocationFilter(data.locations);
 
+        // Update Stats Box
+        updateStatsBox();
+
         // Apply initial filters
         applyFilters();
 
@@ -194,6 +217,17 @@ async function loadProperties() {
     } finally {
         showLoading(false);
     }
+}
+
+function updateStatsBox() {
+    const total = allProperties.length;
+    const highRoi = allProperties.filter(p => (p.roi || 0) > 8).length;
+    
+    const totalEl = document.getElementById('stat-total-properties');
+    const roiEl = document.getElementById('stat-high-roi');
+    
+    if (totalEl) totalEl.textContent = total.toLocaleString();
+    if (roiEl) roiEl.textContent = highRoi.toLocaleString();
 }
 
 function populateLocationFilter(providedLocations) {
@@ -222,6 +256,10 @@ function applyFilters() {
     filteredProperties = allProperties.filter(property => {
         // Price filter (min and max)
         const price = property.price || 0;
+        
+        // Fix: If min price is set (>0), exclude POA/0 price items
+        if (currentFilters.minPrice > 0 && price === 0) return false;
+
         if (price > 0) {
             if (price < currentFilters.minPrice) return false;
             if (price > currentFilters.maxPrice) return false;
@@ -233,6 +271,31 @@ function applyFilters() {
 
         // Location filter
         if (selectedLocation && property.location !== selectedLocation) return false;
+
+        // Postcode filter
+        if (currentFilters.postcode) {
+            const searchTerms = currentFilters.postcode.toLowerCase().split(',').map(t => t.trim()).filter(t => t);
+            if (searchTerms.length > 0) {
+                const address = (property.address || '').toLowerCase();
+                // Check if address contains ANY of the search terms
+                const matches = searchTerms.some(term => address.includes(term));
+                if (!matches) return false;
+            }
+        }
+
+        // Exclude Keywords filter
+        if (currentFilters.excludeKeywords) {
+            const excludeTerms = currentFilters.excludeKeywords.toLowerCase().split(',').map(t => t.trim()).filter(t => t);
+            if (excludeTerms.length > 0) {
+                const description = (property.description || '').toLowerCase();
+                const title = (property.title || '').toLowerCase();
+                const combinedText = title + ' ' + description;
+                
+                // Check if text contains ANY of the exclude terms
+                const hasExcludedTerm = excludeTerms.some(term => combinedText.includes(term));
+                if (hasExcludedTerm) return false;
+            }
+        }
 
         // Type filter
         const type = detectPropertyType(property);
@@ -390,6 +453,37 @@ function renderPropertyCard(property) {
 
     const description = truncate(property.description || 'No description available.', 150);
 
+    // ROI Section
+    let roiHtml = '';
+    if (property.roi) {
+        const roiClass = property.roi > 8 ? 'text-success' : 'text-warning';
+        roiHtml = `
+            <div class="card-roi">
+                <div class="roi-metric">
+                    <span class="roi-label">Est. ROI</span>
+                    <span class="roi-value ${roiClass}">${property.roi}%</span>
+                </div>
+                <div class="roi-details">
+                    <span>Avg Rent: £${property.avg_area_rent ? property.avg_area_rent.toLocaleString() : '?'}</span>
+                    <span>Avg Price: £${property.avg_area_price ? property.avg_area_price.toLocaleString() : '?'}</span>
+                </div>
+            </div>
+        `;
+    } else if (property.avg_area_price) {
+        // Auction / No Price
+        roiHtml = `
+            <div class="card-roi">
+                <div class="roi-metric">
+                    <span class="roi-label">Area Avg</span>
+                    <span class="roi-value">£${property.avg_area_price.toLocaleString()}</span>
+                </div>
+                <div class="roi-details">
+                    <span>Potential Value Indicator</span>
+                </div>
+            </div>
+        `;
+    }
+
     return `
         <article class="property-card">
             <div class="card-header">
@@ -399,6 +493,7 @@ function renderPropertyCard(property) {
             <div class="card-body">
                 <h3 class="card-title">${escapeHtml(property.title || 'Property')}</h3>
                 <p class="card-address">📍 ${escapeHtml(property.address || 'Address not available')}</p>
+                ${roiHtml}
                 <div class="card-tags">${tags.join('')}</div>
                 <p class="card-description">${escapeHtml(description)}</p>
             </div>
@@ -424,6 +519,7 @@ function resetFilters() {
 
     // Reset dropdowns
     elements.locationFilter.value = '';
+    if (elements.postcodeFilter) elements.postcodeFilter.value = '';
     elements.sortBy.value = 'score-desc';
 
     // Reset checkboxes - types

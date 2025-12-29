@@ -17,21 +17,33 @@
                 <h1 class="logo">🏠 GCP Investment Finder</h1>
                 <p class="tagline">Smart analysis for UK property investors</p>
             </div>
-            <div class="data-freshness">
-                <div class="freshness-item">
-                    <span class="freshness-label">📅 Last Updated</span>
-                    <span id="header-last-updated" class="freshness-value">Loading...</span>
+            
+            <div class="stats-box">
+                <div class="stat-item">
+                    <span class="stat-label">Property Data</span>
+                    <span id="stat-total-properties" class="stat-value">Loading...</span>
                 </div>
-                <div class="freshness-item">
-                    <span class="freshness-label">⏰ Next Refresh</span>
-                    <span id="next-refresh" class="freshness-value">Calculating...</span>
+                <div class="stat-item">
+                    <span class="stat-label">High ROI Deals</span>
+                    <span id="stat-high-roi" class="stat-value">0</span>
                 </div>
-                <a href="https://github.com/DidCodeHere/PF-GCP/actions/workflows/scrape.yml" 
-                   target="_blank" 
-                   class="btn btn-refresh"
-                   title="Trigger manual refresh (requires GitHub access)">
-                    🔄 Manual Refresh
-                </a>
+                <div class="stat-item">
+                    <span class="stat-label">Last Updated</span>
+                    <span id="header-last-updated" class="stat-value">Loading...</span>
+                </div>
+                <div class="stat-item creator-item">
+                    <span class="stat-label">Created By</span>
+                    <a href="https://github.com/DidCodeHere" target="_blank" class="stat-link">@DidCodeHere</a>
+                </div>
+            </div>
+
+            <div class="project-info-box">
+                <h3>🎯 The Philosophy</h3>
+                <p>
+                    We aggregate and analyze the UK property market to find <strong>undervalued opportunities</strong> that others miss. 
+                    By focusing on distressed sales, auctions, and renovation projects, and cross-referencing them with local sold prices and rental yields, 
+                    we calculate the true <strong>Return on Investment (ROI)</strong> potential for every listing.
+                </p>
             </div>
         </div>
     </header>
@@ -48,6 +60,16 @@
                         <option value="">All Locations</option>
                         <!-- Populated dynamically -->
                     </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="postcode-filter">Postcode Search</label>
+                    <input type="text" id="postcode-filter" placeholder="e.g. L1, M1, SW1" class="text-input">
+                </div>
+
+                <div class="filter-group">
+                    <label for="exclude-keywords">Exclude Keywords</label>
+                    <input type="text" id="exclude-keywords" placeholder="e.g. cash only, tenant in situ" class="text-input">
                 </div>
 
                 <div class="filter-group">

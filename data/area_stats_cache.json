@@ -1,0 +1,2732 @@
+{
+  "CH5": {
+    "avg_price": 227276.0,
+    "avg_rent": 1643.0,
+    "timestamp": 1767031951.809242
+  },
+  "NG15": {
+    "avg_price": 245716.0,
+    "avg_rent": 1000.0,
+    "timestamp": 1767035654.491846
+  },
+  "S2": {
+    "avg_price": 175019.0,
+    "avg_rent": 959.0,
+    "timestamp": 1767035566.103281
+  },
+  "NR2": {
+    "avg_price": 304170.0,
+    "avg_rent": 1289.0,
+    "timestamp": 1767034427.238055
+  },
+  "BS11": {
+    "avg_price": 286179.0,
+    "avg_rent": 1649.0,
+    "timestamp": 1767035378.87449
+  },
+  "L7": {
+    "avg_price": 151352.0,
+    "avg_rent": 912.0,
+    "timestamp": 1767035846.798007
+  },
+  "DN6": {
+    "avg_price": 176697.0,
+    "avg_rent": 878.0,
+    "timestamp": 1767035511.820754
+  },
+  "PE4": {
+    "avg_price": 228107.0,
+    "avg_rent": 1038.0,
+    "timestamp": 1767034448.670339
+  },
+  "WS1": {
+    "avg_price": 194930.0,
+    "avg_rent": 940.0,
+    "timestamp": 1767035482.484598
+  },
+  "WF13": {
+    "avg_price": 154672.0,
+    "avg_rent": 784.0,
+    "timestamp": 1767035134.817263
+  },
+  "PL7": {
+    "avg_price": 276847.0,
+    "avg_rent": 1224.0,
+    "timestamp": 1767034437.666025
+  },
+  "HU17": {
+    "avg_price": 274259.0,
+    "avg_rent": 988.0,
+    "timestamp": 1767035993.150975
+  },
+  "WA8": {
+    "avg_price": 221913.0,
+    "avg_rent": 932.0,
+    "timestamp": 1767034971.908598
+  },
+  "OL5": {
+    "avg_price": 213448.0,
+    "avg_rent": 957.0,
+    "timestamp": 1767034716.980241
+  },
+  "NR6": {
+    "avg_price": 275761.0,
+    "avg_rent": 1196.0,
+    "timestamp": 1767035118.873913
+  },
+  "DN22": {
+    "avg_price": 253193.0,
+    "avg_rent": 1019.0,
+    "timestamp": 1767035085.619998
+  },
+  "GU19": {
+    "avg_price": 441641.0,
+    "avg_rent": 1867.0,
+    "timestamp": 1767035724.095588
+  },
+  "BH2": {
+    "avg_price": 214788.0,
+    "avg_rent": 1170.0,
+    "timestamp": 1767035442.297765
+  },
+  "DY5": {
+    "avg_price": 207931.0,
+    "avg_rent": 48576.0,
+    "timestamp": 1767035886.713295
+  },
+  "IP3": {
+    "avg_price": 264769.0,
+    "avg_rent": 1206.0,
+    "timestamp": 1767035288.037291
+  },
+  "HU2": {
+    "avg_price": 97413.0,
+    "avg_rent": 652.0,
+    "timestamp": 1767034690.816155
+  },
+  "LL13": {
+    "avg_price": 205308.0,
+    "avg_rent": 1025.0,
+    "timestamp": 1767035673.469216
+  },
+  "PE3": {
+    "avg_price": 262668.0,
+    "avg_rent": 1413.0,
+    "timestamp": 1767034522.811638
+  },
+  "DE24": {
+    "avg_price": 197327.0,
+    "avg_rent": 916.0,
+    "timestamp": 1767034595.339508
+  },
+  "OX5": {
+    "avg_price": 511670.0,
+    "avg_rent": 1621.0,
+    "timestamp": 1767034977.138247
+  },
+  "BA2": {
+    "avg_price": 636989.0,
+    "avg_rent": 2167.0,
+    "timestamp": 1767035544.192882
+  },
+  "PO2": {
+    "avg_price": 243376.0,
+    "avg_rent": 1066.0,
+    "timestamp": 1767035300.287821
+  },
+  "PL3": {
+    "avg_price": 267551.0,
+    "avg_rent": 1131.0,
+    "timestamp": 1767034770.501998
+  },
+  "TS24": {
+    "avg_price": 108069.0,
+    "avg_rent": 627.0,
+    "timestamp": 1767034645.258631
+  },
+  "CW2": {
+    "avg_price": 231095.0,
+    "avg_rent": 940.0,
+    "timestamp": 1767034799.111761
+  },
+  "WN6": {
+    "avg_price": 223832.0,
+    "avg_rent": 904.0,
+    "timestamp": 1767034549.907874
+  },
+  "B43": {
+    "avg_price": 251578.0,
+    "avg_rent": 1121.0,
+    "timestamp": 1767034638.568002
+  },
+  "LE9": {
+    "avg_price": 298526.0,
+    "avg_rent": 1093.0,
+    "timestamp": 1767035367.931448
+  },
+  "SE23": {
+    "avg_price": 611451.0,
+    "avg_rent": 2046.0,
+    "timestamp": 1767035771.655124
+  },
+  "DY1": {
+    "avg_price": 209583.0,
+    "avg_rent": 928.0,
+    "timestamp": 1767035415.432745
+  },
+  "HX3": {
+    "avg_price": 213487.0,
+    "avg_rent": 1017.0,
+    "timestamp": 1767035477.654961
+  },
+  "M27": {
+    "avg_price": 237068.0,
+    "avg_rent": 1214.0,
+    "timestamp": 1767035685.447661
+  },
+  "DE1": {
+    "avg_price": 179739.0,
+    "avg_rent": 862.0,
+    "timestamp": 1767035161.349398
+  },
+  "CH41": {
+    "avg_price": 122510.0,
+    "avg_rent": 2999.0,
+    "timestamp": 1767035407.740537
+  },
+  "NG10": {
+    "avg_price": 223577.0,
+    "avg_rent": 1010.0,
+    "timestamp": 1767035661.408718
+  },
+  "RG8": {
+    "avg_price": 695407.0,
+    "avg_rent": 2909.0,
+    "timestamp": 1767034569.243605
+  },
+  "CH46": {
+    "avg_price": 209707.0,
+    "avg_rent": 880.0,
+    "timestamp": 1767036176.770546
+  },
+  "BH21": {
+    "avg_price": 438627.0,
+    "avg_rent": 1905.0,
+    "timestamp": 1767035203.879145
+  },
+  "NE31": {
+    "avg_price": 179542.0,
+    "avg_rent": 746.0,
+    "timestamp": 1767035897.158908
+  },
+  "SW10": {
+    "avg_price": 1881800.0,
+    "avg_rent": 5319.0,
+    "timestamp": 1767035891.765909
+  },
+  "CB4": {
+    "avg_price": 467954.0,
+    "avg_rent": 1470.0,
+    "timestamp": 1767034574.915156
+  },
+  "M35": {
+    "avg_price": 221156.0,
+    "avg_rent": 1013.0,
+    "timestamp": 1767035448.247927
+  },
+  "YO24": {
+    "avg_price": 324301.0,
+    "avg_rent": 1182.0,
+    "timestamp": 1767034475.621403
+  },
+  "ST3": {
+    "avg_price": 184865.0,
+    "avg_rent": 862.0,
+    "timestamp": 1767035806.122689
+  },
+  "SE2": {
+    "avg_price": 415909.0,
+    "avg_rent": 1985.0,
+    "timestamp": 1767036182.835889
+  },
+  "DL16": {
+    "avg_price": 146778.0,
+    "avg_rent": 862.0,
+    "timestamp": 1767035431.588332
+  },
+  "BD1": {
+    "avg_price": 91610.0,
+    "avg_rent": 699.0,
+    "timestamp": 1767034563.815906
+  },
+  "DE13": {
+    "avg_price": 327500.0,
+    "avg_rent": 936.0,
+    "timestamp": 1767035384.944288
+  },
+  "WV2": {
+    "avg_price": 151345.0,
+    "avg_rent": 1140.0,
+    "timestamp": 1767036163.390512
+  },
+  "CB2": {
+    "avg_price": 604679.0,
+    "avg_rent": 1961.0,
+    "timestamp": 1767034568.629379
+  },
+  "BH14": {
+    "avg_price": 560769.0,
+    "avg_rent": 1782.0,
+    "timestamp": 1767034488.676224
+  },
+  "GL51": {
+    "avg_price": 323089.0,
+    "avg_rent": 1309.0,
+    "timestamp": 1767035958.886779
+  },
+  "HU3": {
+    "avg_price": 116053.0,
+    "avg_rent": 649.0,
+    "timestamp": 1767034930.423832
+  },
+  "BD16": {
+    "avg_price": 250174.0,
+    "avg_rent": 5885.0,
+    "timestamp": 1767036050.372655
+  },
+  "PR26": {
+    "avg_price": 258960.0,
+    "avg_rent": 3480.0,
+    "timestamp": 1767036078.204513
+  },
+  "GU35": {
+    "avg_price": 401370.0,
+    "avg_rent": 1920.0,
+    "timestamp": 1767035912.302658
+  },
+  "PE1": {
+    "avg_price": 212314.0,
+    "avg_rent": 1167.0,
+    "timestamp": 1767035853.760284
+  },
+  "DL14": {
+    "avg_price": 126881.0,
+    "avg_rent": 630.0,
+    "timestamp": 1767036157.247305
+  },
+  "LE5": {
+    "avg_price": 280336.0,
+    "avg_rent": 2264.0,
+    "timestamp": 1767035876.67448
+  },
+  "NR3": {
+    "avg_price": 215673.0,
+    "avg_rent": 1142.0,
+    "timestamp": 1767035736.063583
+  },
+  "WS3": {
+    "avg_price": 212780.0,
+    "avg_rent": 1167.0,
+    "timestamp": 1767035707.925596
+  },
+  "B66": {
+    "avg_price": 194292.0,
+    "avg_rent": 989.0,
+    "timestamp": 1767034891.183136
+  },
+  "WA3": {
+    "avg_price": 280394.0,
+    "avg_rent": 2907.0,
+    "timestamp": 1767035335.827334
+  },
+  "BS35": {
+    "avg_price": 358544.0,
+    "avg_rent": 1340.0,
+    "timestamp": 1767035602.169432
+  },
+  "TS6": {
+    "avg_price": 135029.0,
+    "avg_rent": 746.0,
+    "timestamp": 1767035596.103661
+  },
+  "TS10": {
+    "avg_price": 169283.0,
+    "avg_rent": 793.0,
+    "timestamp": 1767035483.570563
+  },
+  "LS21": {
+    "avg_price": 339837.0,
+    "avg_rent": 1050.0,
+    "timestamp": 1767035060.225083
+  },
+  "YO1": {
+    "avg_price": 342125.0,
+    "avg_rent": 1473.0,
+    "timestamp": 1767035830.765925
+  },
+  "M9": {
+    "avg_price": 188702.0,
+    "avg_rent": 1131.0,
+    "timestamp": 1767035309.386115
+  },
+  "L11": {
+    "avg_price": 154069.0,
+    "avg_rent": 993.0,
+    "timestamp": 1767035032.129171
+  },
+  "YO41": {
+    "avg_price": 359678.0,
+    "avg_rent": 7690.0,
+    "timestamp": 1767035560.407832
+  },
+  "PR2": {
+    "avg_price": 199700.0,
+    "avg_rent": 994.0,
+    "timestamp": 1767034935.156849
+  },
+  "IP4": {
+    "avg_price": 268949.0,
+    "avg_rent": 3563.0,
+    "timestamp": 1767035415.065629
+  },
+  "S5": {
+    "avg_price": 152298.0,
+    "avg_rent": 793.0,
+    "timestamp": 1767035313.955476
+  },
+  "WF4": {
+    "avg_price": 246150.0,
+    "avg_rent": 1232.0,
+    "timestamp": 1767035070.432097
+  },
+  "NE6": {
+    "avg_price": 198637.0,
+    "avg_rent": 1297.0,
+    "timestamp": 1767034620.887699
+  },
+  "GL52": {
+    "avg_price": 415842.0,
+    "avg_rent": 1457.0,
+    "timestamp": 1767035818.904899
+  },
+  "WN1": {
+    "avg_price": 215612.0,
+    "avg_rent": 907.0,
+    "timestamp": 1767034721.787922
+  },
+  "B33": {
+    "avg_price": 203119.0,
+    "avg_rent": 990.0,
+    "timestamp": 1767034775.351752
+  },
+  "DN19": {
+    "avg_price": 250696.0,
+    "avg_rent": 1097.0,
+    "timestamp": 1767035425.622907
+  },
+  "LE1": {
+    "avg_price": 135657.0,
+    "avg_rent": 923.0,
+    "timestamp": 1767035931.273416
+  },
+  "HU12": {
+    "avg_price": 206639.0,
+    "avg_rent": 856.0,
+    "timestamp": 1767035783.093824
+  },
+  "BH25": {
+    "avg_price": 441395.0,
+    "avg_rent": 1425.0,
+    "timestamp": 1767035235.540875
+  },
+  "SK16": {
+    "avg_price": 211496.0,
+    "avg_rent": 983.0,
+    "timestamp": 1767034396.174826
+  },
+  "WF17": {
+    "avg_price": 187033.0,
+    "avg_rent": 896.0,
+    "timestamp": 1767035752.617254
+  },
+  "WF8": {
+    "avg_price": 241622.0,
+    "avg_rent": 952.0,
+    "timestamp": 1767034658.09672
+  },
+  "GL1": {
+    "avg_price": 197724.0,
+    "avg_rent": 1618.0,
+    "timestamp": 1767035425.702499
+  },
+  "SR5": {
+    "avg_price": 140057.0,
+    "avg_rent": 896.0,
+    "timestamp": 1767034960.322466
+  },
+  "SR7": {
+    "avg_price": 146484.0,
+    "avg_rent": 1438.0,
+    "timestamp": 1767035252.166004
+  },
+  "SR8": {
+    "avg_price": 98619.0,
+    "avg_rent": 629.0,
+    "timestamp": 1767035075.229102
+  },
+  "WS11": {
+    "avg_price": 244706.0,
+    "avg_rent": 1147.0,
+    "timestamp": 1767035391.11653
+  },
+  "SW18": {
+    "avg_price": 823282.0,
+    "avg_rent": 3080.0,
+    "timestamp": 1767036082.729585
+  },
+  "NG4": {
+    "avg_price": 225939.0,
+    "avg_rent": 941.0,
+    "timestamp": 1767035108.90023
+  },
+  "S62": {
+    "avg_price": 167591.0,
+    "avg_rent": 889.0,
+    "timestamp": 1767035053.125147
+  },
+  "WV12": {
+    "avg_price": 211722.0,
+    "avg_rent": 970.0,
+    "timestamp": 1767034559.142658
+  },
+  "LE8": {
+    "avg_price": 332084.0,
+    "avg_rent": 1200.0,
+    "timestamp": 1767036004.251274
+  },
+  "YO23": {
+    "avg_price": 413465.0,
+    "avg_rent": 1454.0,
+    "timestamp": 1767034425.366463
+  },
+  "FY8": {
+    "avg_price": 282190.0,
+    "avg_rent": 970.0,
+    "timestamp": 1767034527.599739
+  },
+  "NE38": {
+    "avg_price": 198442.0,
+    "avg_rent": 27984.0,
+    "timestamp": 1767035172.508068
+  },
+  "TS3": {
+    "avg_price": 85159.0,
+    "avg_rent": 687.0,
+    "timestamp": 1767035615.317133
+  },
+  "WS10": {
+    "avg_price": 192585.0,
+    "avg_rent": 2265.0,
+    "timestamp": 1767034554.36137
+  },
+  "OX1": {
+    "avg_price": 555012.0,
+    "avg_rent": 2209.0,
+    "timestamp": 1767034615.630608
+  },
+  "DN5": {
+    "avg_price": 190509.0,
+    "avg_rent": 808.0,
+    "timestamp": 1767035039.150829
+  },
+  "GL10": {
+    "avg_price": 354187.0,
+    "avg_rent": 1516.0,
+    "timestamp": 1767035145.466516
+  },
+  "CR3": {
+    "avg_price": 519014.0,
+    "avg_rent": 1928.0,
+    "timestamp": 1767034705.612132
+  },
+  "IP11": {
+    "avg_price": 319116.0,
+    "avg_rent": 1532.0,
+    "timestamp": 1767035325.550261
+  },
+  "LN5": {
+    "avg_price": 221468.0,
+    "avg_rent": 796.0,
+    "timestamp": 1767034420.005458
+  },
+  "S74": {
+    "avg_price": 193256.0,
+    "avg_rent": 760.0,
+    "timestamp": 1767034000.899273
+  },
+  "WA11": {
+    "avg_price": 202403.0,
+    "avg_rent": 975.0,
+    "timestamp": 1767035777.532248
+  },
+  "CB1": {
+    "avg_price": 533673.0,
+    "avg_rent": 1708.0,
+    "timestamp": 1767036169.976909
+  },
+  "WA10": {
+    "avg_price": 181847.0,
+    "avg_rent": 846.0,
+    "timestamp": 1767034901.875822
+  },
+  "MK6": {
+    "avg_price": 263231.0,
+    "avg_rent": 1264.0,
+    "timestamp": 1767036065.524739
+  },
+  "PO11": {
+    "avg_price": 369104.0,
+    "avg_rent": 1431.0,
+    "timestamp": 1767035937.885905
+  },
+  "SK1": {
+    "avg_price": 215404.0,
+    "avg_rent": 1132.0,
+    "timestamp": 1767035690.910119
+  },
+  "SE18": {
+    "avg_price": 428756.0,
+    "avg_rent": 2282.0,
+    "timestamp": 1767034391.147792
+  },
+  "CO11": {
+    "avg_price": 388286.0,
+    "avg_rent": 1044.0,
+    "timestamp": 1767035944.39522
+  },
+  "LN2": {
+    "avg_price": 243617.0,
+    "avg_rent": 959.0,
+    "timestamp": 1767035268.841689
+  },
+  "BS7": {
+    "avg_price": 478795.0,
+    "avg_rent": 2273.0,
+    "timestamp": 1767034833.381749
+  },
+  "S72": {
+    "avg_price": 177012.0,
+    "avg_rent": 791.0,
+    "timestamp": 1767034986.734112
+  },
+  "B14": {
+    "avg_price": 262282.0,
+    "avg_rent": 1284.0,
+    "timestamp": 1767034664.056532
+  },
+  "PO6": {
+    "avg_price": 332678.0,
+    "avg_rent": 1519.0,
+    "timestamp": 1767035965.693279
+  },
+  "LE2": {
+    "avg_price": 288993.0,
+    "avg_rent": 1101.0,
+    "timestamp": 1767036150.380947
+  },
+  "TS1": {
+    "avg_price": 82054.0,
+    "avg_rent": 642.0,
+    "timestamp": 1767035633.239941
+  },
+  "BH24": {
+    "avg_price": 628038.0,
+    "avg_rent": 108135.0,
+    "timestamp": 1767034463.690521
+  },
+  "CR8": {
+    "avg_price": 558980.0,
+    "avg_rent": 2147.0,
+    "timestamp": 1767034431.549916
+  },
+  "IG1": {
+    "avg_price": 449332.0,
+    "avg_rent": 1797.0,
+    "timestamp": 1767034591.765035
+  },
+  "NG5": {
+    "avg_price": 263221.0,
+    "avg_rent": 1021.0,
+    "timestamp": 1767035048.057936
+  },
+  "WF3": {
+    "avg_price": 253601.0,
+    "avg_rent": 1720.0,
+    "timestamp": 1767034512.693929
+  },
+  "BH8": {
+    "avg_price": 338152.0,
+    "avg_rent": 1448.0,
+    "timestamp": 1767035004.756291
+  },
+  "BN6": {
+    "avg_price": 626292.0,
+    "avg_rent": 1745.0,
+    "timestamp": 1767035043.176881
+  },
+  "M40": {
+    "avg_price": 203926.0,
+    "avg_rent": 1213.0,
+    "timestamp": 1767036121.060306
+  },
+  "TQ13": {
+    "avg_price": 417592.0,
+    "avg_rent": 1073.0,
+    "timestamp": 1767035982.306118
+  },
+  "L25": {
+    "avg_price": 304762.0,
+    "avg_rent": 1193.0,
+    "timestamp": 1767035309.933827
+  },
+  "CV4": {
+    "avg_price": 272872.0,
+    "avg_rent": 1536.0,
+    "timestamp": 1767034669.666583
+  },
+  "ST6": {
+    "avg_price": 138667.0,
+    "avg_rent": 780.0,
+    "timestamp": 1767035578.232499
+  },
+  "RM13": {
+    "avg_price": 416143.0,
+    "avg_rent": 1926.0,
+    "timestamp": 1767035107.705538
+  },
+  "NG23": {
+    "avg_price": 379514.0,
+    "avg_rent": 3083.0,
+    "timestamp": 1767036137.329944
+  },
+  "BS48": {
+    "avg_price": 442281.0,
+    "avg_rent": 1372.0,
+    "timestamp": 1767035275.875417
+  },
+  "S70": {
+    "avg_price": 149689.0,
+    "avg_rent": 733.0,
+    "timestamp": 1767035202.39028
+  },
+  "B20": {
+    "avg_price": 243574.0,
+    "avg_rent": 2729.0,
+    "timestamp": 1767035129.233796
+  },
+  "E2": {
+    "avg_price": 568686.0,
+    "avg_rent": 2978.0,
+    "timestamp": 1767034920.831458
+  },
+  "DY4": {
+    "avg_price": 198294.0,
+    "avg_rent": 1106.0,
+    "timestamp": 1767035925.760978
+  },
+  "SR4": {
+    "avg_price": 133918.0,
+    "avg_rent": 766.0,
+    "timestamp": 1767034936.448499
+  },
+  "RH15": {
+    "avg_price": 434908.0,
+    "avg_rent": 1738.0,
+    "timestamp": 1767035950.03819
+  },
+  "BD9": {
+    "avg_price": 192489.0,
+    "avg_rent": 883.0,
+    "timestamp": 1767034458.458354
+  },
+  "GL5": {
+    "avg_price": 351366.0,
+    "avg_rent": 1255.0,
+    "timestamp": 1767035548.881002
+  },
+  "OX3": {
+    "avg_price": 499843.0,
+    "avg_rent": 2095.0,
+    "timestamp": 1767034574.957059
+  },
+  "NG8": {
+    "avg_price": 244834.0,
+    "avg_rent": 1319.0,
+    "timestamp": 1767036142.845577
+  },
+  "TS29": {
+    "avg_price": 106490.0,
+    "avg_rent": 613.0,
+    "timestamp": 1767034610.860059
+  },
+  "HU15": {
+    "avg_price": 272115.0,
+    "avg_rent": 1071.0,
+    "timestamp": 1767035443.086589
+  },
+  "TS19": {
+    "avg_price": 149513.0,
+    "avg_rent": 704.0,
+    "timestamp": 1767035656.695876
+  },
+  "PO13": {
+    "avg_price": 302651.0,
+    "avg_rent": 1327.0,
+    "timestamp": 1767034998.390193
+  },
+  "PR6": {
+    "avg_price": 246196.0,
+    "avg_rent": 1372.0,
+    "timestamp": 1767035896.561907
+  },
+  "B32": {
+    "avg_price": 232642.0,
+    "avg_rent": 1089.0,
+    "timestamp": 1767035037.271662
+  },
+  "FY1": {
+    "avg_price": 109883.0,
+    "avg_rent": 699.0,
+    "timestamp": 1767035525.549873
+  },
+  "B4": {
+    "avg_price": 261714.0,
+    "avg_rent": 1326.0,
+    "timestamp": 1767035070.590751
+  },
+  "DH7": {
+    "avg_price": 154896.0,
+    "avg_rent": 844.0,
+    "timestamp": 1767034903.232495
+  },
+  "RG41": {
+    "avg_price": 551638.0,
+    "avg_rent": 2456.0,
+    "timestamp": 1767034925.864428
+  },
+  "DE73": {
+    "avg_price": 309269.0,
+    "avg_rent": 1206.0,
+    "timestamp": 1767034385.886135
+  },
+  "S3": {
+    "avg_price": 153910.0,
+    "avg_rent": 1102.0,
+    "timestamp": 1767034892.669581
+  },
+  "BA1": {
+    "avg_price": 582417.0,
+    "avg_rent": 1890.0,
+    "timestamp": 1767035571.21485
+  },
+  "BS20": {
+    "avg_price": 416375.0,
+    "avg_rent": 1509.0,
+    "timestamp": 1767034632.444208
+  },
+  "SE16": {
+    "avg_price": 515633.0,
+    "avg_rent": 3703.0,
+    "timestamp": 1767036127.301669
+  },
+  "SO31": {
+    "avg_price": 412733.0,
+    "avg_rent": 1429.0,
+    "timestamp": 1767035730.440434
+  },
+  "LE12": {
+    "avg_price": 316182.0,
+    "avg_rent": 2071.0,
+    "timestamp": 1767036016.053619
+  },
+  "DA8": {
+    "avg_price": 346987.0,
+    "avg_rent": 1772.0,
+    "timestamp": 1767034822.6543
+  },
+  "DY8": {
+    "avg_price": 275496.0,
+    "avg_rent": 875.0,
+    "timestamp": 1767034651.245766
+  },
+  "BS31": {
+    "avg_price": 439133.0,
+    "avg_rent": 1395.0,
+    "timestamp": 1767034437.119319
+  },
+  "D3": {
+    "avg_price": null,
+    "avg_rent": null,
+    "timestamp": 1767035025.79569
+  },
+  "HU7": {
+    "avg_price": 170208.0,
+    "avg_rent": 944.0,
+    "timestamp": 1767035151.000362
+  },
+  "B73": {
+    "avg_price": 343129.0,
+    "avg_rent": 1175.0,
+    "timestamp": 1767035638.59688
+  },
+  "NR4": {
+    "avg_price": 361316.0,
+    "avg_rent": 1676.0,
+    "timestamp": 1767035113.728223
+  },
+  "S35": {
+    "avg_price": 258471.0,
+    "avg_rent": 931.0,
+    "timestamp": 1767034816.152759
+  },
+  "FY3": {
+    "avg_price": 153682.0,
+    "avg_rent": 821.0,
+    "timestamp": 1767035134.320266
+  },
+  "TS27": {
+    "avg_price": 163051.0,
+    "avg_rent": 772.0,
+    "timestamp": 1767035583.826155
+  },
+  "CB3": {
+    "avg_price": 779370.0,
+    "avg_rent": 2191.0,
+    "timestamp": 1767034885.397479
+  },
+  "NR7": {
+    "avg_price": 292479.0,
+    "avg_rent": 1544.0,
+    "timestamp": 1767035235.507625
+  },
+  "ST1": {
+    "avg_price": 123936.0,
+    "avg_rent": 759.0,
+    "timestamp": 1767035702.740201
+  },
+  "FY7": {
+    "avg_price": 148885.0,
+    "avg_rent": 718.0,
+    "timestamp": 1767035390.927821
+  },
+  "BH15": {
+    "avg_price": 320267.0,
+    "avg_rent": 1445.0,
+    "timestamp": 1767034499.648216
+  },
+  "NG3": {
+    "avg_price": 233104.0,
+    "avg_rent": 1175.0,
+    "timestamp": 1767035245.304828
+  },
+  "S63": {
+    "avg_price": 148786.0,
+    "avg_rent": 758.0,
+    "timestamp": 1767035179.88705
+  },
+  "BH7": {
+    "avg_price": 431273.0,
+    "avg_rent": 1384.0,
+    "timestamp": 1767036052.667936
+  },
+  "BD13": {
+    "avg_price": 195288.0,
+    "avg_rent": 786.0,
+    "timestamp": 1767034798.149462
+  },
+  "WV11": {
+    "avg_price": 231111.0,
+    "avg_rent": 963.0,
+    "timestamp": 1767035166.648528
+  },
+  "M3": {
+    "avg_price": 218273.0,
+    "avg_rent": 1649.0,
+    "timestamp": 1767036084.513002
+  },
+  "BD7": {
+    "avg_price": 138017.0,
+    "avg_rent": 614.0,
+    "timestamp": 1767035771.087074
+  },
+  "S60": {
+    "avg_price": 233160.0,
+    "avg_rent": 1826.0,
+    "timestamp": 1767034726.816316
+  },
+  "RM10": {
+    "avg_price": 358226.0,
+    "avg_rent": 1898.0,
+    "timestamp": 1767035150.098531
+  },
+  "LA9": {
+    "avg_price": 274704.0,
+    "avg_rent": 1047.0,
+    "timestamp": 1767035913.295813
+  },
+  "NR18": {
+    "avg_price": 314266.0,
+    "avg_rent": 1101.0,
+    "timestamp": 1767035124.440595
+  },
+  "TS5": {
+    "avg_price": 165416.0,
+    "avg_rent": 791.0,
+    "timestamp": 1767035097.577831
+  },
+  "SN11": {
+    "avg_price": 325989.0,
+    "avg_rent": 1397.0,
+    "timestamp": 1767034556.216959
+  },
+  "PR1": {
+    "avg_price": 161060.0,
+    "avg_rent": 1020.0,
+    "timestamp": 1767034579.554005
+  },
+  "HD1": {
+    "avg_price": 158933.0,
+    "avg_rent": 698.0,
+    "timestamp": 1767035608.656822
+  },
+  "SO17": {
+    "avg_price": 242644.0,
+    "avg_rent": 1681.0,
+    "timestamp": 1767035668.263705
+  },
+  "L5": {
+    "avg_price": 125820.0,
+    "avg_rent": 1124.0,
+    "timestamp": 1767034453.544365
+  },
+  "HU4": {
+    "avg_price": 152809.0,
+    "avg_rent": 878.0,
+    "timestamp": 1767035356.747104
+  },
+  "DE75": {
+    "avg_price": 218664.0,
+    "avg_rent": 841.0,
+    "timestamp": 1767035212.558619
+  },
+  "M6": {
+    "avg_price": 246075.0,
+    "avg_rent": 1760.0,
+    "timestamp": 1767035224.621003
+  },
+  "LS6": {
+    "avg_price": 287382.0,
+    "avg_rent": 1884.0,
+    "timestamp": 1767035262.822451
+  },
+  "WN2": {
+    "avg_price": 184176.0,
+    "avg_rent": 845.0,
+    "timestamp": 1767034993.713323
+  },
+  "HU5": {
+    "avg_price": 141198.0,
+    "avg_rent": 759.0,
+    "timestamp": 1767034954.832973
+  },
+  "CW1": {
+    "avg_price": 207491.0,
+    "avg_rent": 931.0,
+    "timestamp": 1767035633.93154
+  },
+  "NE34": {
+    "avg_price": 175605.0,
+    "avg_rent": 1073.0,
+    "timestamp": 1767035596.007465
+  },
+  "WV6": {
+    "avg_price": 304562.0,
+    "avg_rent": 1304.0,
+    "timestamp": 1767035103.65714
+  },
+  "S25": {
+    "avg_price": 206250.0,
+    "avg_rent": 1170.0,
+    "timestamp": 1767034754.284207
+  },
+  "CB24": {
+    "avg_price": 475585.0,
+    "avg_rent": 1550.0,
+    "timestamp": 1767035278.66509
+  },
+  "GL50": {
+    "avg_price": 384132.0,
+    "avg_rent": 1436.0,
+    "timestamp": 1767035925.355223
+  },
+  "HD5": {
+    "avg_price": 189576.0,
+    "avg_rent": 831.0,
+    "timestamp": 1767035185.450334
+  },
+  "EX5": {
+    "avg_price": 361213.0,
+    "avg_rent": 1316.0,
+    "timestamp": 1767035976.675966
+  },
+  "CR6": {
+    "avg_price": 640846.0,
+    "avg_rent": 2094.0,
+    "timestamp": 1767035362.040507
+  },
+  "ST13": {
+    "avg_price": 232527.0,
+    "avg_rent": 841.0,
+    "timestamp": 1767034977.846415
+  },
+  "S73": {
+    "avg_price": 174164.0,
+    "avg_rent": 776.0,
+    "timestamp": 1767034443.922197
+  },
+  "WN7": {
+    "avg_price": 187812.0,
+    "avg_rent": 897.0,
+    "timestamp": 1767035824.977925
+  },
+  "B1": {
+    "avg_price": 251185.0,
+    "avg_rent": 1441.0,
+    "timestamp": 1767035766.767161
+  },
+  "BN15": {
+    "avg_price": 347245.0,
+    "avg_rent": 1313.0,
+    "timestamp": 1767035907.391199
+  },
+  "NR1": {
+    "avg_price": 236374.0,
+    "avg_rent": 1093.0,
+    "timestamp": 1767035191.097794
+  },
+  "RG10": {
+    "avg_price": 661700.0,
+    "avg_rent": 2066.0,
+    "timestamp": 1767035835.918651
+  },
+  "SE9": {
+    "avg_price": 502016.0,
+    "avg_rent": 2007.0,
+    "timestamp": 1767035626.873241
+  },
+  "PL2": {
+    "avg_price": 207068.0,
+    "avg_rent": 910.0,
+    "timestamp": 1767035329.775456
+  },
+  "OL1": {
+    "avg_price": 192849.0,
+    "avg_rent": 910.0,
+    "timestamp": 1767034941.020803
+  },
+  "OX2": {
+    "avg_price": 716298.0,
+    "avg_rent": 2262.0,
+    "timestamp": 1767034539.604743
+  },
+  "S10": {
+    "avg_price": 338460.0,
+    "avg_rent": 970.0,
+    "timestamp": 1767034471.305214
+  },
+  "S43": {
+    "avg_price": 198269.0,
+    "avg_rent": 869.0,
+    "timestamp": 1767034482.179747
+  },
+  "RM7": {
+    "avg_price": 409582.0,
+    "avg_rent": 1775.0,
+    "timestamp": 1767036047.097976
+  },
+  "BH16": {
+    "avg_price": 394621.0,
+    "avg_rent": 1615.0,
+    "timestamp": 1767034885.992818
+  },
+  "M46": {
+    "avg_price": 188125.0,
+    "avg_rent": 952.0,
+    "timestamp": 1767035372.450146
+  },
+  "OX13": {
+    "avg_price": 553292.0,
+    "avg_rent": 2077.0,
+    "timestamp": 1767034874.680008
+  },
+  "NG16": {
+    "avg_price": 226227.0,
+    "avg_rent": 979.0,
+    "timestamp": 1767034852.325264
+  },
+  "CV13": {
+    "avg_price": 376085.0,
+    "avg_rent": 1338.0,
+    "timestamp": 1767034494.627711
+  },
+  "YO10": {
+    "avg_price": 308041.0,
+    "avg_rent": 2080.0,
+    "timestamp": 1767035761.701752
+  },
+  "E10": {
+    "avg_price": 532103.0,
+    "avg_rent": 2136.0,
+    "timestamp": 1767035719.760595
+  },
+  "SO16": {
+    "avg_price": 306158.0,
+    "avg_rent": 1702.0,
+    "timestamp": 1767036174.790967
+  },
+  "NE29": {
+    "avg_price": 206065.0,
+    "avg_rent": 1154.0,
+    "timestamp": 1767035737.222057
+  },
+  "OX44": {
+    "avg_price": 550382.0,
+    "avg_rent": 27633.0,
+    "timestamp": 1767035672.911779
+  },
+  "BL6": {
+    "avg_price": 248303.0,
+    "avg_rent": 1061.0,
+    "timestamp": 1767035454.577172
+  },
+  "B74": {
+    "avg_price": 503620.0,
+    "avg_rent": 1716.0,
+    "timestamp": 1767034749.509396
+  },
+  "DE23": {
+    "avg_price": 227699.0,
+    "avg_rent": 867.0,
+    "timestamp": 1767036147.329562
+  },
+  "TN34": {
+    "avg_price": 314004.0,
+    "avg_rent": 1568.0,
+    "timestamp": 1767035554.510863
+  },
+  "E3": {
+    "avg_price": 503204.0,
+    "avg_rent": 2404.0,
+    "timestamp": 1767034494.035579
+  },
+  "B18": {
+    "avg_price": 173203.0,
+    "avg_rent": 1416.0,
+    "timestamp": 1767035140.068839
+  },
+  "RG1": {
+    "avg_price": 335377.0,
+    "avg_rent": 1746.0,
+    "timestamp": 1767034896.956926
+  },
+  "B42": {
+    "avg_price": 223788.0,
+    "avg_rent": 1268.0,
+    "timestamp": 1767034780.444728
+  },
+  "NR8": {
+    "avg_price": 315558.0,
+    "avg_rent": 1323.0,
+    "timestamp": 1767034786.999195
+  },
+  "PO34": {
+    "avg_price": 451964.0,
+    "avg_rent": 1458.0,
+    "timestamp": 1767035602.778202
+  },
+  "PR7": {
+    "avg_price": 229594.0,
+    "avg_rent": 924.0,
+    "timestamp": 1767035156.610866
+  },
+  "NE1": {
+    "avg_price": 170710.0,
+    "avg_rent": 1454.0,
+    "timestamp": 1767035847.098165
+  },
+  "B26": {
+    "avg_price": 241350.0,
+    "avg_rent": 1241.0,
+    "timestamp": 1767034971.772978
+  },
+  "TS20": {
+    "avg_price": 157063.0,
+    "avg_rent": 679.0,
+    "timestamp": 1767036095.70746
+  },
+  "BS13": {
+    "avg_price": 293552.0,
+    "avg_rent": 1316.0,
+    "timestamp": 1767034528.237923
+  },
+  "WN4": {
+    "avg_price": 209090.0,
+    "avg_rent": 952.0,
+    "timestamp": 1767034845.44675
+  },
+  "CH44": {
+    "avg_price": 153212.0,
+    "avg_rent": 775.0,
+    "timestamp": 1767035788.527726
+  },
+  "TS25": {
+    "avg_price": 134265.0,
+    "avg_rent": 745.0,
+    "timestamp": 1767036131.811862
+  },
+  "B23": {
+    "avg_price": 190456.0,
+    "avg_rent": 981.0,
+    "timestamp": 1767034868.401394
+  },
+  "CV10": {
+    "avg_price": 226368.0,
+    "avg_rent": 2079.0,
+    "timestamp": 1767034657.561707
+  },
+  "SK6": {
+    "avg_price": 333974.0,
+    "avg_rent": 1765.0,
+    "timestamp": 1767036088.822749
+  },
+  "BD5": {
+    "avg_price": 119906.0,
+    "avg_rent": 826.0,
+    "timestamp": 1767035520.408353
+  },
+  "DE22": {
+    "avg_price": 287393.0,
+    "avg_rent": 873.0,
+    "timestamp": 1767035499.899077
+  },
+  "M50": {
+    "avg_price": 198126.0,
+    "avg_rent": 1717.0,
+    "timestamp": 1767035292.954305
+  },
+  "CF31": {
+    "avg_price": 235758.0,
+    "avg_rent": 1356.0,
+    "timestamp": 1767034982.130607
+  },
+  "M16": {
+    "avg_price": 344806.0,
+    "avg_rent": 1252.0,
+    "timestamp": 1767034988.625402
+  },
+  "PR3": {
+    "avg_price": 293782.0,
+    "avg_rent": 1577.0,
+    "timestamp": 1767035544.100838
+  },
+  "SE11": {
+    "avg_price": 579270.0,
+    "avg_rent": 3007.0,
+    "timestamp": 1767035650.810141
+  },
+  "EX8": {
+    "avg_price": 366287.0,
+    "avg_rent": 1301.0,
+    "timestamp": 1767035396.505991
+  },
+  "B31": {
+    "avg_price": 239080.0,
+    "avg_rent": 1570.0,
+    "timestamp": 1767036152.098028
+  },
+  "ST4": {
+    "avg_price": 164377.0,
+    "avg_rent": 716.0,
+    "timestamp": 1767036108.213343
+  },
+  "NE8": {
+    "avg_price": 138816.0,
+    "avg_rent": 1223.0,
+    "timestamp": 1767034840.256204
+  },
+  "LE11": {
+    "avg_price": 257115.0,
+    "avg_rent": 1236.0,
+    "timestamp": 1767034621.01161
+  },
+  "PL12": {
+    "avg_price": 310102.0,
+    "avg_rent": 1090.0,
+    "timestamp": 1767034842.772523
+  },
+  "DN1": {
+    "avg_price": 107486.0,
+    "avg_rent": 677.0,
+    "timestamp": 1767035448.931528
+  },
+  "M8": {
+    "avg_price": 198585.0,
+    "avg_rent": 1274.0,
+    "timestamp": 1767034506.45815
+  },
+  "IP10": {
+    "avg_price": 456780.0,
+    "avg_rent": 1552.0,
+    "timestamp": 1767034459.849452
+  },
+  "B60": {
+    "avg_price": 365222.0,
+    "avg_rent": 1197.0,
+    "timestamp": 1767036025.870351
+  },
+  "BN43": {
+    "avg_price": 450235.0,
+    "avg_rent": 1776.0,
+    "timestamp": 1767036157.791929
+  },
+  "GL18": {
+    "avg_price": 299792.0,
+    "avg_rent": 1119.0,
+    "timestamp": 1767035459.618161
+  },
+  "CV5": {
+    "avg_price": 270852.0,
+    "avg_rent": 1166.0,
+    "timestamp": 1767035250.865838
+  },
+  "MK7": {
+    "avg_price": 375354.0,
+    "avg_rent": 1299.0,
+    "timestamp": 1767034721.740545
+  },
+  "WV1": {
+    "avg_price": 172692.0,
+    "avg_rent": 914.0,
+    "timestamp": 1767036010.181682
+  },
+  "PR8": {
+    "avg_price": 268565.0,
+    "avg_rent": 17380.0,
+    "timestamp": 1767035621.435752
+  },
+  "TS17": {
+    "avg_price": 182559.0,
+    "avg_rent": 926.0,
+    "timestamp": 1767036194.5047
+  },
+  "DN15": {
+    "avg_price": 176154.0,
+    "avg_rent": 784.0,
+    "timestamp": 1767035419.828123
+  },
+  "LE4": {
+    "avg_price": 265466.0,
+    "avg_rent": 1195.0,
+    "timestamp": 1767035639.808685
+  },
+  "S80": {
+    "avg_price": 187432.0,
+    "avg_rent": 705.0,
+    "timestamp": 1767035999.023596
+  },
+  "RG2": {
+    "avg_price": 403133.0,
+    "avg_rent": 1713.0,
+    "timestamp": 1767035020.849313
+  },
+  "BB4": {
+    "avg_price": 224491.0,
+    "avg_rent": 1251.0,
+    "timestamp": 1767034488.286215
+  },
+  "FY2": {
+    "avg_price": 157955.0,
+    "avg_rent": 856.0,
+    "timestamp": 1767035869.813864
+  },
+  "HX1": {
+    "avg_price": 127440.0,
+    "avg_rent": 720.0,
+    "timestamp": 1767036101.06243
+  },
+  "TF11": {
+    "avg_price": 312659.0,
+    "avg_rent": 1451.0,
+    "timestamp": 1767034919.737596
+  },
+  "EX1": {
+    "avg_price": 328180.0,
+    "avg_rent": 1537.0,
+    "timestamp": 1767035170.934316
+  },
+  "EX7": {
+    "avg_price": 305058.0,
+    "avg_rent": 1009.0,
+    "timestamp": 1767035931.673322
+  },
+  "L24": {
+    "avg_price": 202854.0,
+    "avg_rent": 1489.0,
+    "timestamp": 1767034954.469021
+  },
+  "CO12": {
+    "avg_price": 254171.0,
+    "avg_rent": 1098.0,
+    "timestamp": 1767034961.195306
+  },
+  "CV23": {
+    "avg_price": 379673.0,
+    "avg_rent": 1746.0,
+    "timestamp": 1767035981.840499
+  },
+  "YO31": {
+    "avg_price": 333686.0,
+    "avg_rent": 1783.0,
+    "timestamp": 1767033098.001152
+  },
+  "WS2": {
+    "avg_price": 167610.0,
+    "avg_rent": 943.0,
+    "timestamp": 1767035331.903246
+  },
+  "S66": {
+    "avg_price": 201639.0,
+    "avg_rent": 1002.0,
+    "timestamp": 1767035811.639431
+  },
+  "NG7": {
+    "avg_price": 226472.0,
+    "avg_rent": 1601.0,
+    "timestamp": 1767035759.254656
+  },
+  "SO41": {
+    "avg_price": 535745.0,
+    "avg_rent": 1714.0,
+    "timestamp": 1767034511.126928
+  },
+  "LE18": {
+    "avg_price": 262518.0,
+    "avg_rent": 1033.0,
+    "timestamp": 1767035494.852939
+  },
+  "L33": {
+    "avg_price": 194282.0,
+    "avg_rent": 1029.0,
+    "timestamp": 1767035842.313478
+  },
+  "MK13": {
+    "avg_price": 302562.0,
+    "avg_rent": 1526.0,
+    "timestamp": 1767035561.366806
+  },
+  "CV11": {
+    "avg_price": 276105.0,
+    "avg_rent": 1035.0,
+    "timestamp": 1767034851.10713
+  },
+  "WF10": {
+    "avg_price": 187643.0,
+    "avg_rent": 841.0,
+    "timestamp": 1767035505.788755
+  },
+  "SO18": {
+    "avg_price": 271192.0,
+    "avg_rent": 1232.0,
+    "timestamp": 1767035812.890706
+  },
+  "SE28": {
+    "avg_price": 338334.0,
+    "avg_rent": 2715.0,
+    "timestamp": 1767034616.485018
+  },
+  "MK5": {
+    "avg_price": 410829.0,
+    "avg_rent": 1668.0,
+    "timestamp": 1767034864.007724
+  },
+  "NE33": {
+    "avg_price": 128107.0,
+    "avg_rent": 709.0,
+    "timestamp": 1767035830.668979
+  },
+  "CR0": {
+    "avg_price": 433847.0,
+    "avg_rent": 1874.0,
+    "timestamp": 1767035517.087534
+  },
+  "LS29": {
+    "avg_price": 441121.0,
+    "avg_rent": 1297.0,
+    "timestamp": 1767035880.800895
+  },
+  "SR3": {
+    "avg_price": 183005.0,
+    "avg_rent": 1143.0,
+    "timestamp": 1767035742.508727
+  },
+  "BN3": {
+    "avg_price": 551309.0,
+    "avg_rent": 1750.0,
+    "timestamp": 1767034770.404644
+  },
+  "L2": {
+    "avg_price": 241901.0,
+    "avg_rent": 1189.0,
+    "timestamp": 1767036142.504986
+  },
+  "DN11": {
+    "avg_price": 202097.0,
+    "avg_rent": 1596.0,
+    "timestamp": 1767034674.015686
+  },
+  "OX14": {
+    "avg_price": 529954.0,
+    "avg_rent": 1476.0,
+    "timestamp": 1767034781.795092
+  },
+  "BS1": {
+    "avg_price": 421554.0,
+    "avg_rent": 1919.0,
+    "timestamp": 1767035229.811535
+  },
+  "MK9": {
+    "avg_price": 256894.0,
+    "avg_rent": 1678.0,
+    "timestamp": 1767035016.484121
+  },
+  "BS9": {
+    "avg_price": 628931.0,
+    "avg_rent": 1976.0,
+    "timestamp": 1767034765.081125
+  },
+  "M1": {
+    "avg_price": 397583.0,
+    "avg_rent": 1988.0,
+    "timestamp": 1767034589.085789
+  },
+  "B27": {
+    "avg_price": 213584.0,
+    "avg_rent": 964.0,
+    "timestamp": 1767035054.235195
+  },
+  "B68": {
+    "avg_price": 233853.0,
+    "avg_rent": 1167.0,
+    "timestamp": 1767036043.820198
+  },
+  "RG30": {
+    "avg_price": 341057.0,
+    "avg_rent": 1511.0,
+    "timestamp": 1767034505.222652
+  },
+  "CV8": {
+    "avg_price": 426199.0,
+    "avg_rent": 1598.0,
+    "timestamp": 1767035103.349235
+  },
+  "YO30": {
+    "avg_price": 339808.0,
+    "avg_rent": 1479.0,
+    "timestamp": 1767036021.133118
+  },
+  "HU1": {
+    "avg_price": 132605.0,
+    "avg_rent": 856.0,
+    "timestamp": 1767035996.586321
+  },
+  "SW11": {
+    "avg_price": 937473.0,
+    "avg_rent": 3112.0,
+    "timestamp": 1767034856.742403
+  },
+  "SK10": {
+    "avg_price": 427731.0,
+    "avg_rent": 1866.0,
+    "timestamp": 1767035141.022246
+  },
+  "HU6": {
+    "avg_price": 145428.0,
+    "avg_rent": 794.0,
+    "timestamp": 1767034744.600211
+  },
+  "CV12": {
+    "avg_price": 240994.0,
+    "avg_rent": 4953.0,
+    "timestamp": 1767034476.112868
+  },
+  "S20": {
+    "avg_price": 221874.0,
+    "avg_rent": 1090.0,
+    "timestamp": 1767035510.414686
+  },
+  "M15": {
+    "avg_price": 288777.0,
+    "avg_rent": 1672.0,
+    "timestamp": 1767035087.2827
+  },
+  "RG5": {
+    "avg_price": 446542.0,
+    "avg_rent": 1639.0,
+    "timestamp": 1767035460.084517
+  },
+  "SE15": {
+    "avg_price": 616348.0,
+    "avg_rent": 3920.0,
+    "timestamp": 1767035863.986139
+  },
+  "BL1": {
+    "avg_price": 211255.0,
+    "avg_rent": 1021.0,
+    "timestamp": 1767035175.244492
+  },
+  "MK18": {
+    "avg_price": 435784.0,
+    "avg_rent": 1361.0,
+    "timestamp": 1767035589.844358
+  },
+  "GL4": {
+    "avg_price": 285105.0,
+    "avg_rent": 1194.0,
+    "timestamp": 1767035032.533409
+  },
+  "HX2": {
+    "avg_price": 199442.0,
+    "avg_rent": 856.0,
+    "timestamp": 1767035799.76022
+  },
+  "TS4": {
+    "avg_price": 126785.0,
+    "avg_rent": 713.0,
+    "timestamp": 1767034469.591516
+  },
+  "OL11": {
+    "avg_price": 203910.0,
+    "avg_rent": 1195.0,
+    "timestamp": 1767034803.749239
+  },
+  "NE37": {
+    "avg_price": 150951.0,
+    "avg_rent": 2277.0,
+    "timestamp": 1767034402.036029
+  },
+  "B15": {
+    "avg_price": 355991.0,
+    "avg_rent": 1464.0,
+    "timestamp": 1767035341.207962
+  },
+  "SO50": {
+    "avg_price": 322537.0,
+    "avg_rent": 1275.0,
+    "timestamp": 1767034545.294988
+  },
+  "WV4": {
+    "avg_price": 243327.0,
+    "avg_rent": 1086.0,
+    "timestamp": 1767035246.767762
+  },
+  "PO16": {
+    "avg_price": 337174.0,
+    "avg_rent": 2311.0,
+    "timestamp": 1767034926.012922
+  },
+  "WF12": {
+    "avg_price": 214540.0,
+    "avg_rent": 915.0,
+    "timestamp": 1767035240.953194
+  },
+  "BH23": {
+    "avg_price": 464408.0,
+    "avg_rent": 1501.0,
+    "timestamp": 1767035969.814841
+  },
+  "OL12": {
+    "avg_price": 200669.0,
+    "avg_rent": 1062.0,
+    "timestamp": 1767036132.762903
+  },
+  "TS28": {
+    "avg_price": 152358.0,
+    "avg_rent": 579.0,
+    "timestamp": 1767035864.631188
+  },
+  "HU9": {
+    "avg_price": 124290.0,
+    "avg_rent": 729.0,
+    "timestamp": 1767035841.148916
+  },
+  "CF32": {
+    "avg_price": 219330.0,
+    "avg_rent": 990.0,
+    "timestamp": 1767035748.025128
+  },
+  "ST2": {
+    "avg_price": 167100.0,
+    "avg_rent": 854.0,
+    "timestamp": 1767035350.593048
+  },
+  "L1": {
+    "avg_price": 978354.0,
+    "avg_rent": 1000.0,
+    "timestamp": 1767035754.569152
+  },
+  "YO26": {
+    "avg_price": 352711.0,
+    "avg_rent": 1339.0,
+    "timestamp": 1767035471.832633
+  },
+  "S26": {
+    "avg_price": 237350.0,
+    "avg_rent": 1173.0,
+    "timestamp": 1767035576.385131
+  },
+  "DL15": {
+    "avg_price": 140968.0,
+    "avg_rent": 643.0,
+    "timestamp": 1767035408.542661
+  },
+  "LS7": {
+    "avg_price": 281330.0,
+    "avg_rent": 1067.0,
+    "timestamp": 1767034584.55929
+  },
+  "SK14": {
+    "avg_price": 233071.0,
+    "avg_rent": 985.0,
+    "timestamp": 1767035011.311206
+  },
+  "SO15": {
+    "avg_price": 274377.0,
+    "avg_rent": 1385.0,
+    "timestamp": 1767033099.212763
+  },
+  "ST7": {
+    "avg_price": 242176.0,
+    "avg_rent": 1444.0,
+    "timestamp": 1767034442.844234
+  },
+  "YO32": {
+    "avg_price": 345059.0,
+    "avg_rent": 1494.0,
+    "timestamp": 1767036075.645171
+  },
+  "S1": {
+    "avg_price": 197565.0,
+    "avg_rent": 1040.0,
+    "timestamp": 1767034909.119846
+  },
+  "SE10": {
+    "avg_price": 550321.0,
+    "avg_rent": 2433.0,
+    "timestamp": 1767035891.582616
+  },
+  "EX4": {
+    "avg_price": 328746.0,
+    "avg_rent": 2079.0,
+    "timestamp": 1767036010.352305
+  },
+  "EX2": {
+    "avg_price": 331418.0,
+    "avg_rent": 2332.0,
+    "timestamp": 1767035154.807759
+  },
+  "B5": {
+    "avg_price": 256210.0,
+    "avg_rent": 1429.0,
+    "timestamp": 1767034739.266039
+  },
+  "E16": {
+    "avg_price": 469750.0,
+    "avg_rent": 2298.0,
+    "timestamp": 1767034522.93204
+  },
+  "B16": {
+    "avg_price": 246871.0,
+    "avg_rent": 1248.0,
+    "timestamp": 1767034965.745684
+  },
+  "SR2": {
+    "avg_price": 143031.0,
+    "avg_rent": 769.0,
+    "timestamp": 1767034732.117849
+  },
+  "WV10": {
+    "avg_price": 209391.0,
+    "avg_rent": 1283.0,
+    "timestamp": 1767034684.978473
+  },
+  "PL4": {
+    "avg_price": 203557.0,
+    "avg_rent": 681.0,
+    "timestamp": 1767034626.453274
+  },
+  "BB11": {
+    "avg_price": 118118.0,
+    "avg_rent": 1084.0,
+    "timestamp": 1767034793.016406
+  },
+  "CH62": {
+    "avg_price": 212368.0,
+    "avg_rent": 1129.0,
+    "timestamp": 1767034420.543862
+  },
+  "NE28": {
+    "avg_price": 160287.0,
+    "avg_rent": 886.0,
+    "timestamp": 1767035906.393032
+  },
+  "BR5": {
+    "avg_price": 536976.0,
+    "avg_rent": 1916.0,
+    "timestamp": 1767035294.556598
+  },
+  "SK8": {
+    "avg_price": 372884.0,
+    "avg_rent": 1563.0,
+    "timestamp": 1767035502.417844
+  },
+  "NR14": {
+    "avg_price": 363919.0,
+    "avg_rent": 1212.0,
+    "timestamp": 1767035356.813143
+  },
+  "DE56": {
+    "avg_price": 302494.0,
+    "avg_rent": 1021.0,
+    "timestamp": 1767035621.111238
+  },
+  "B69": {
+    "avg_price": 212061.0,
+    "avg_rent": 1293.0,
+    "timestamp": 1767035402.627265
+  },
+  "SO32": {
+    "avg_price": 504382.0,
+    "avg_rent": 1765.0,
+    "timestamp": 1767035515.769214
+  },
+  "PR4": {
+    "avg_price": 290958.0,
+    "avg_rent": 1128.0,
+    "timestamp": 1767035271.964537
+  },
+  "BS16": {
+    "avg_price": 357783.0,
+    "avg_rent": 1941.0,
+    "timestamp": 1767036182.164265
+  },
+  "LS19": {
+    "avg_price": 306828.0,
+    "avg_rent": 1055.0,
+    "timestamp": 1767035220.018801
+  },
+  "FY4": {
+    "avg_price": 160069.0,
+    "avg_rent": 1075.0,
+    "timestamp": 1767035954.060469
+  },
+  "LN4": {
+    "avg_price": 258621.0,
+    "avg_rent": 2067.0,
+    "timestamp": 1767035346.268836
+  },
+  "PE9": {
+    "avg_price": 374450.0,
+    "avg_rent": 1281.0,
+    "timestamp": 1767035125.847917
+  },
+  "E17": {
+    "avg_price": 586732.0,
+    "avg_rent": 2293.0,
+    "timestamp": 1767036127.065258
+  },
+  "OL4": {
+    "avg_price": 217538.0,
+    "avg_rent": 1047.0,
+    "timestamp": 1767034606.059774
+  },
+  "WV13": {
+    "avg_price": 191478.0,
+    "avg_rent": 1002.0,
+    "timestamp": 1767036068.688177
+  },
+  "DN3": {
+    "avg_price": 222385.0,
+    "avg_rent": 1284.0,
+    "timestamp": 1767034874.728796
+  },
+  "CV6": {
+    "avg_price": 208573.0,
+    "avg_rent": 1158.0,
+    "timestamp": 1767035531.603535
+  },
+  "BD12": {
+    "avg_price": 177805.0,
+    "avg_rent": 688.0,
+    "timestamp": 1767034516.607917
+  },
+  "CF33": {
+    "avg_price": 200799.0,
+    "avg_rent": 955.0,
+    "timestamp": 1767035464.866399
+  },
+  "PE2": {
+    "avg_price": 244519.0,
+    "avg_rent": 1278.0,
+    "timestamp": 1767034738.463357
+  },
+  "LL34": {
+    "avg_price": 206948.0,
+    "avg_rent": 1168.0,
+    "timestamp": 1767034674.86186
+  },
+  "PE6": {
+    "avg_price": 299103.0,
+    "avg_rent": 1259.0,
+    "timestamp": 1767034540.365057
+  },
+  "RM1": {
+    "avg_price": 438762.0,
+    "avg_rent": 1738.0,
+    "timestamp": 1767035691.670408
+  },
+  "LE7": {
+    "avg_price": 358871.0,
+    "avg_rent": 1176.0,
+    "timestamp": 1767035467.019897
+  },
+  "WV8": {
+    "avg_price": 322971.0,
+    "avg_rent": 1489.0,
+    "timestamp": 1767034716.815882
+  },
+  "M29": {
+    "avg_price": 241125.0,
+    "avg_rent": 1012.0,
+    "timestamp": 1767035431.266262
+  },
+  "M13": {
+    "avg_price": 230688.0,
+    "avg_rent": 1695.0,
+    "timestamp": 1767034651.722391
+  },
+  "SO14": {
+    "avg_price": 219243.0,
+    "avg_rent": 1474.0,
+    "timestamp": 1767036114.297695
+  },
+  "CV3": {
+    "avg_price": 270232.0,
+    "avg_rent": 3349.0,
+    "timestamp": 1767035679.701135
+  },
+  "MK10": {
+    "avg_price": 389787.0,
+    "avg_rent": 1806.0,
+    "timestamp": 1767034561.299809
+  },
+  "BB2": {
+    "avg_price": 189477.0,
+    "avg_rent": 958.0,
+    "timestamp": 1767035532.088836
+  },
+  "DH1": {
+    "avg_price": 239040.0,
+    "avg_rent": 1332.0,
+    "timestamp": 1767035696.870262
+  },
+  "CH43": {
+    "avg_price": 236532.0,
+    "avg_rent": 869.0,
+    "timestamp": 1767035685.397226
+  },
+  "NG12": {
+    "avg_price": 373182.0,
+    "avg_rent": 1683.0,
+    "timestamp": 1767035537.624113
+  },
+  "YO19": {
+    "avg_price": 480796.0,
+    "avg_rent": 1666.0,
+    "timestamp": 1767035987.148366
+  },
+  "PO3": {
+    "avg_price": 277382.0,
+    "avg_rent": 1467.0,
+    "timestamp": 1767035944.139548
+  },
+  "MK14": {
+    "avg_price": 348384.0,
+    "avg_rent": 1641.0,
+    "timestamp": 1767035026.999063
+  },
+  "M4": {
+    "avg_price": 252442.0,
+    "avg_rent": 1579.0,
+    "timestamp": 1767035341.612113
+  },
+  "DH4": {
+    "avg_price": 168237.0,
+    "avg_rent": 1852.0,
+    "timestamp": 1767035319.492465
+  },
+  "CH42": {
+    "avg_price": 158026.0,
+    "avg_rent": 792.0,
+    "timestamp": 1767036030.933154
+  },
+  "B17": {
+    "avg_price": 362461.0,
+    "avg_rent": 1370.0,
+    "timestamp": 1767034638.067325
+  },
+  "B24": {
+    "avg_price": 228318.0,
+    "avg_rent": 2001.0,
+    "timestamp": 1767035975.258883
+  },
+  "SE3": {
+    "avg_price": 635764.0,
+    "avg_rent": 2362.0,
+    "timestamp": 1767034835.865372
+  },
+  "DN20": {
+    "avg_price": 227529.0,
+    "avg_rent": 942.0,
+    "timestamp": 1767035080.785406
+  },
+  "NE9": {
+    "avg_price": 200802.0,
+    "avg_rent": 838.0,
+    "timestamp": 1767035076.704938
+  },
+  "PL1": {
+    "avg_price": 207739.0,
+    "avg_rent": 1222.0,
+    "timestamp": 1767036164.338883
+  },
+  "BN2": {
+    "avg_price": 457113.0,
+    "avg_rent": 2195.0,
+    "timestamp": 1767035960.542212
+  },
+  "ST21": {
+    "avg_price": 364574.0,
+    "avg_rent": 991.0,
+    "timestamp": 1767035060.160126
+  },
+  "RG7": {
+    "avg_price": 534461.0,
+    "avg_rent": 2012.0,
+    "timestamp": 1767035583.000779
+  },
+  "BL2": {
+    "avg_price": 217160.0,
+    "avg_rent": 946.0,
+    "timestamp": 1767034698.861914
+  },
+  "SO19": {
+    "avg_price": 258469.0,
+    "avg_rent": 1372.0,
+    "timestamp": 1767034759.041439
+  },
+  "TS21": {
+    "avg_price": 233273.0,
+    "avg_rent": 853.0,
+    "timestamp": 1767034402.842348
+  },
+  "NG17": {
+    "avg_price": 192621.0,
+    "avg_rent": 930.0,
+    "timestamp": 1767034765.299467
+  },
+  "BS14": {
+    "avg_price": 304547.0,
+    "avg_rent": 1440.0,
+    "timestamp": 1767034699.14596
+  },
+  "RG42": {
+    "avg_price": 499365.0,
+    "avg_rent": 2036.0,
+    "timestamp": 1767035230.129549
+  },
+  "DH9": {
+    "avg_price": 123260.0,
+    "avg_rent": 629.0,
+    "timestamp": 1767036094.334075
+  },
+  "CV22": {
+    "avg_price": 344496.0,
+    "avg_rent": 1163.0,
+    "timestamp": 1767035991.172235
+  },
+  "B11": {
+    "avg_price": 190313.0,
+    "avg_rent": 1136.0,
+    "timestamp": 1767034947.548812
+  },
+  "PO1": {
+    "avg_price": 407117.0,
+    "avg_rent": 1358.0,
+    "timestamp": 1767035777.504918
+  },
+  "ST5": {
+    "avg_price": 210292.0,
+    "avg_rent": 955.0,
+    "timestamp": 1767036073.407795
+  },
+  "WV14": {
+    "avg_price": 198734.0,
+    "avg_rent": 1276.0,
+    "timestamp": 1767035256.86312
+  },
+  "GL2": {
+    "avg_price": 310924.0,
+    "avg_rent": 1497.0,
+    "timestamp": 1767036107.508647
+  },
+  "MK8": {
+    "avg_price": 355546.0,
+    "avg_rent": 1476.0,
+    "timestamp": 1767035901.341054
+  },
+  "PE22": {
+    "avg_price": 259812.0,
+    "avg_rent": 1298.0,
+    "timestamp": 1767036089.249815
+  },
+  "B72": {
+    "avg_price": 398874.0,
+    "avg_rent": 1560.0,
+    "timestamp": 1767035362.723234
+  },
+  "MK11": {
+    "avg_price": 328971.0,
+    "avg_rent": 1708.0,
+    "timestamp": 1767035644.268575
+  },
+  "BN9": {
+    "avg_price": 310510.0,
+    "avg_rent": 1473.0,
+    "timestamp": 1767034631.398395
+  },
+  "S44": {
+    "avg_price": 202341.0,
+    "avg_rent": 2182.0,
+    "timestamp": 1767035218.874992
+  },
+  "LN1": {
+    "avg_price": 245412.0,
+    "avg_rent": 824.0,
+    "timestamp": 1767034787.610597
+  },
+  "DH6": {
+    "avg_price": 146024.0,
+    "avg_rent": 703.0,
+    "timestamp": 1767034809.437839
+  },
+  "CB5": {
+    "avg_price": 478842.0,
+    "avg_rent": 1665.0,
+    "timestamp": 1767035566.146949
+  },
+  "LN6": {
+    "avg_price": 247018.0,
+    "avg_rent": 1089.0,
+    "timestamp": 1767034601.05724
+  },
+  "FY5": {
+    "avg_price": 181818.0,
+    "avg_rent": 1054.0,
+    "timestamp": 1767036015.512769
+  },
+  "BS34": {
+    "avg_price": 327785.0,
+    "avg_rent": 1965.0,
+    "timestamp": 1767034688.614872
+  },
+  "WN3": {
+    "avg_price": 203692.0,
+    "avg_rent": 1076.0,
+    "timestamp": 1767035713.611729
+  },
+  "CV7": {
+    "avg_price": 377775.0,
+    "avg_rent": 1189.0,
+    "timestamp": 1767034544.880875
+  },
+  "S6": {
+    "avg_price": 239057.0,
+    "avg_rent": 946.0,
+    "timestamp": 1767035615.365696
+  },
+  "BS40": {
+    "avg_price": 554159.0,
+    "avg_rent": 1395.0,
+    "timestamp": 1767035709.635044
+  },
+  "CV2": {
+    "avg_price": 217693.0,
+    "avg_rent": 1115.0,
+    "timestamp": 1767035207.704621
+  },
+  "TS18": {
+    "avg_price": 157683.0,
+    "avg_rent": 961.0,
+    "timestamp": 1767036027.603669
+  },
+  "BD21": {
+    "avg_price": 121426.0,
+    "avg_rent": 702.0,
+    "timestamp": 1767035304.04533
+  },
+  "TA8": {
+    "avg_price": 284756.0,
+    "avg_rent": 1027.0,
+    "timestamp": 1767035804.929517
+  },
+  "S40": {
+    "avg_price": 223520.0,
+    "avg_rent": 1310.0,
+    "timestamp": 1767035476.776863
+  },
+  "PO4": {
+    "avg_price": 275804.0,
+    "avg_rent": 1687.0,
+    "timestamp": 1767034815.648598
+  },
+  "MK3": {
+    "avg_price": 325455.0,
+    "avg_rent": 1623.0,
+    "timestamp": 1767034869.670035
+  },
+  "NE35": {
+    "avg_price": 162754.0,
+    "avg_rent": 7261.0,
+    "timestamp": 1767035550.04735
+  },
+  "PE25": {
+    "avg_price": 190051.0,
+    "avg_rent": 688.0,
+    "timestamp": 1767036032.794192
+  },
+  "DE21": {
+    "avg_price": 227694.0,
+    "avg_rent": 1646.0,
+    "timestamp": 1767034668.850088
+  },
+  "M11": {
+    "avg_price": 165532.0,
+    "avg_rent": 1238.0,
+    "timestamp": 1767035789.528181
+  },
+  "BH1": {
+    "avg_price": 249153.0,
+    "avg_rent": 1189.0,
+    "timestamp": 1767034914.997598
+  },
+  "NG90": {
+    "avg_price": null,
+    "avg_rent": 2948.0,
+    "timestamp": 1767036189.060936
+  },
+  "BS10": {
+    "avg_price": 352898.0,
+    "avg_rent": 2308.0,
+    "timestamp": 1767034828.836741
+  },
+  "CR5": {
+    "avg_price": 615918.0,
+    "avg_rent": 2138.0,
+    "timestamp": 1767035093.019475
+  },
+  "BD3": {
+    "avg_price": 112757.0,
+    "avg_rent": 778.0,
+    "timestamp": 1767035316.076553
+  },
+  "PE7": {
+    "avg_price": 275765.0,
+    "avg_rent": 1274.0,
+    "timestamp": 1767034387.483572
+  },
+  "SK7": {
+    "avg_price": 443414.0,
+    "avg_rent": 1569.0,
+    "timestamp": 1767035793.989711
+  },
+  "SR1": {
+    "avg_price": 45217.0,
+    "avg_rent": 761.0,
+    "timestamp": 1767035345.949981
+  },
+  "GL3": {
+    "avg_price": 328126.0,
+    "avg_rent": 1206.0,
+    "timestamp": 1767036036.921861
+  },
+  "PL5": {
+    "avg_price": 202617.0,
+    "avg_rent": 1122.0,
+    "timestamp": 1767034599.904761
+  },
+  "HU10": {
+    "avg_price": 262167.0,
+    "avg_rent": 1061.0,
+    "timestamp": 1767035380.813339
+  },
+  "M5": {
+    "avg_price": 175023.0,
+    "avg_rent": 1398.0,
+    "timestamp": 1767035004.43198
+  },
+  "LS25": {
+    "avg_price": 285450.0,
+    "avg_rent": 4831.0,
+    "timestamp": 1767035725.537145
+  },
+  "RG31": {
+    "avg_price": 424793.0,
+    "avg_rent": 1519.0,
+    "timestamp": 1767035876.024649
+  },
+  "B77": {
+    "avg_price": 254225.0,
+    "avg_rent": 1138.0,
+    "timestamp": 1767034705.064005
+  },
+  "NG1": {
+    "avg_price": 153891.0,
+    "avg_rent": 1227.0,
+    "timestamp": 1767035166.299117
+  },
+  "PR5": {
+    "avg_price": 212884.0,
+    "avg_rent": 943.0,
+    "timestamp": 1767035964.908244
+  },
+  "LU7": {
+    "avg_price": 380881.0,
+    "avg_rent": 1551.0,
+    "timestamp": 1767035437.59784
+  },
+  "B8": {
+    "avg_price": 177868.0,
+    "avg_rent": 939.0,
+    "timestamp": 1767034907.871599
+  },
+  "PL21": {
+    "avg_price": 347930.0,
+    "avg_rent": 785.0,
+    "timestamp": 1767035398.026164
+  },
+  "RG9": {
+    "avg_price": 897757.0,
+    "avg_rent": 2505.0,
+    "timestamp": 1767034683.899996
+  },
+  "SA9": {
+    "avg_price": 183414.0,
+    "avg_rent": 793.0,
+    "timestamp": 1767035858.909384
+  },
+  "WN8": {
+    "avg_price": 201714.0,
+    "avg_rent": 821.0,
+    "timestamp": 1767035186.491715
+  },
+  "S61": {
+    "avg_price": 181165.0,
+    "avg_rent": 768.0,
+    "timestamp": 1767035010.103093
+  },
+  "B98": {
+    "avg_price": 247987.0,
+    "avg_rent": 1305.0,
+    "timestamp": 1767034407.793311
+  },
+  "M20": {
+    "avg_price": 403055.0,
+    "avg_rent": 1791.0,
+    "timestamp": 1767035285.308479
+  },
+  "NG9": {
+    "avg_price": 277385.0,
+    "avg_rent": 1394.0,
+    "timestamp": 1767035527.38952
+  },
+  "PO5": {
+    "avg_price": 287812.0,
+    "avg_rent": 1525.0,
+    "timestamp": 1767035825.032845
+  },
+  "BS5": {
+    "avg_price": 338356.0,
+    "avg_rent": 1511.0,
+    "timestamp": 1767035325.811901
+  },
+  "IG3": {
+    "avg_price": 489132.0,
+    "avg_rent": 1863.0,
+    "timestamp": 1767036195.407448
+  },
+  "HU8": {
+    "avg_price": 150466.0,
+    "avg_rent": 748.0,
+    "timestamp": 1767036114.456429
+  },
+  "DL17": {
+    "avg_price": 104258.0,
+    "avg_rent": 620.0,
+    "timestamp": 1767036058.451255
+  },
+  "BS41": {
+    "avg_price": 578378.0,
+    "avg_rent": 1810.0,
+    "timestamp": 1767035297.699589
+  },
+  "IP1": {
+    "avg_price": 235775.0,
+    "avg_rent": 1199.0,
+    "timestamp": 1767034822.69708
+  },
+  "LS10": {
+    "avg_price": 187596.0,
+    "avg_rent": 2009.0,
+    "timestamp": 1767035196.873958
+  },
+  "CF36": {
+    "avg_price": 340435.0,
+    "avg_rent": 1034.0,
+    "timestamp": 1767035044.543458
+  },
+  "B13": {
+    "avg_price": 338144.0,
+    "avg_rent": 1108.0,
+    "timestamp": 1767035742.390957
+  },
+  "TA20": {
+    "avg_price": 288174.0,
+    "avg_rent": 1226.0,
+    "timestamp": 1767035373.891923
+  },
+  "DN12": {
+    "avg_price": 145510.0,
+    "avg_rent": 796.0,
+    "timestamp": 1767034733.273664
+  },
+  "BR2": {
+    "avg_price": 601959.0,
+    "avg_rent": 2043.0,
+    "timestamp": 1767034394.017233
+  },
+  "DH2": {
+    "avg_price": 165068.0,
+    "avg_rent": 1224.0,
+    "timestamp": 1767034749.54901
+  },
+  "WN5": {
+    "avg_price": 196819.0,
+    "avg_rent": 936.0,
+    "timestamp": 1767035267.077177
+  },
+  "L3": {
+    "avg_price": 199060.0,
+    "avg_rent": 1210.0,
+    "timestamp": 1767035181.292403
+  },
+  "BS8": {
+    "avg_price": 597553.0,
+    "avg_rent": 2119.0,
+    "timestamp": 1767035919.382248
+  },
+  "BB3": {
+    "avg_price": 174210.0,
+    "avg_rent": 964.0,
+    "timestamp": 1767036058.556063
+  },
+  "E6": {
+    "avg_price": 417043.0,
+    "avg_rent": 2280.0,
+    "timestamp": 1767034606.231483
+  },
+  "BH17": {
+    "avg_price": 326359.0,
+    "avg_rent": 1361.0,
+    "timestamp": 1767035488.935622
+  },
+  "LS9": {
+    "avg_price": 192589.0,
+    "avg_rent": 1099.0,
+    "timestamp": 1767034993.777593
+  },
+  "BD6": {
+    "avg_price": 162573.0,
+    "avg_rent": 817.0,
+    "timestamp": 1767035719.140048
+  },
+  "WF9": {
+    "avg_price": 175647.0,
+    "avg_rent": 812.0,
+    "timestamp": 1767035704.358493
+  },
+  "BS6": {
+    "avg_price": 619826.0,
+    "avg_rent": 2341.0,
+    "timestamp": 1767035214.142927
+  },
+  "B3": {
+    "avg_price": 256826.0,
+    "avg_rent": 1708.0,
+    "timestamp": 1767034453.131471
+  },
+  "DE7": {
+    "avg_price": 210728.0,
+    "avg_rent": 922.0,
+    "timestamp": 1767036041.668435
+  },
+  "MK4": {
+    "avg_price": 369210.0,
+    "avg_rent": 1548.0,
+    "timestamp": 1767035795.162204
+  },
+  "NG6": {
+    "avg_price": 179913.0,
+    "avg_rent": 1716.0,
+    "timestamp": 1767034880.273041
+  },
+  "DN4": {
+    "avg_price": 184930.0,
+    "avg_rent": 858.0,
+    "timestamp": 1767034586.03303
+  },
+  "OX4": {
+    "avg_price": 450829.0,
+    "avg_rent": 2452.0,
+    "timestamp": 1767034755.627304
+  },
+  "IP2": {
+    "avg_price": 222017.0,
+    "avg_rent": 1074.0,
+    "timestamp": 1767035495.083065
+  },
+  "BH4": {
+    "avg_price": 346955.0,
+    "avg_rent": 1296.0,
+    "timestamp": 1767035883.224097
+  },
+  "BD17": {
+    "avg_price": 278965.0,
+    "avg_rent": 1002.0,
+    "timestamp": 1767034533.412765
+  },
+  "NE10": {
+    "avg_price": 151626.0,
+    "avg_rent": 904.0,
+    "timestamp": 1767034858.404744
+  },
+  "L8": {
+    "avg_price": 141098.0,
+    "avg_rent": 922.0,
+    "timestamp": 1767034942.300352
+  },
+  "B7": {
+    "avg_price": 169615.0,
+    "avg_rent": 3467.0,
+    "timestamp": 1767036064.21149
+  },
+  "TS14": {
+    "avg_price": 214231.0,
+    "avg_rent": 759.0,
+    "timestamp": 1767034804.197315
+  },
+  "IP6": {
+    "avg_price": 328048.0,
+    "avg_rent": 1175.0,
+    "timestamp": 1767035091.414732
+  },
+  "LS11": {
+    "avg_price": 148530.0,
+    "avg_rent": 1486.0,
+    "timestamp": 1767035949.243779
+  },
+  "TS26": {
+    "avg_price": 176170.0,
+    "avg_rent": 627.0,
+    "timestamp": 1767035281.641048
+  },
+  "DH3": {
+    "avg_price": 189754.0,
+    "avg_rent": 798.0,
+    "timestamp": 1767035667.436759
+  },
+  "WV3": {
+    "avg_price": 248927.0,
+    "avg_rent": 1017.0,
+    "timestamp": 1767035065.469313
+  },
+  "RM5": {
+    "avg_price": 440291.0,
+    "avg_rent": 2141.0,
+    "timestamp": 1767034408.257237
+  },
+  "LE3": {
+    "avg_price": 240217.0,
+    "avg_rent": 1083.0,
+    "timestamp": 1767034711.842368
+  },
+  "CV1": {
+    "avg_price": 218871.0,
+    "avg_rent": 1192.0,
+    "timestamp": 1767035262.004671
+  },
+  "DE74": {
+    "avg_price": 283118.0,
+    "avg_rent": 1378.0,
+    "timestamp": 1767034678.152188
+  },
+  "BH5": {
+    "avg_price": 268440.0,
+    "avg_rent": 1167.0,
+    "timestamp": 1767035119.456022
+  },
+  "PO33": {
+    "avg_price": 265521.0,
+    "avg_rent": 1032.0,
+    "timestamp": 1767034413.481171
+  },
+  "B28": {
+    "avg_price": 310872.0,
+    "avg_rent": 1111.0,
+    "timestamp": 1767034693.782248
+  },
+  "S4": {
+    "avg_price": 112119.0,
+    "avg_rent": 1200.0,
+    "timestamp": 1767035648.974312
+  },
+  "BH6": {
+    "avg_price": 471382.0,
+    "avg_rent": 1339.0,
+    "timestamp": 1767035858.81128
+  },
+  "CH65": {
+    "avg_price": 177529.0,
+    "avg_rent": 1115.0,
+    "timestamp": 1767035196.617416
+  }
+}

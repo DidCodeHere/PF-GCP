@@ -17,6 +17,9 @@ class Property:
     llm_score: Optional[float] = None
     llm_reasoning: Optional[str] = None
     price_display: str = "" # For "POA", "Guide Price", etc.
+    avg_area_price: Optional[float] = None
+    avg_area_rent: Optional[float] = None
+    roi: Optional[float] = None
 
     def __post_init__(self):
         if not self.price_display:

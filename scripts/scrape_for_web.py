@@ -23,6 +23,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
 from src.scraper import Scraper
 from src.analyzer import PropertyAnalyzer
+from src.llm_analyzer import LLMAnalyzer
 from src.models import Property
 
 
@@ -293,6 +294,28 @@ def main():
         except Exception as e:
             print(f"[!] Error searching {location}: {e}")
             continue
+            
+    # 3. Run deterministic "AI" analysis (free; safe for GitHub Pages workflows)
+    llm = LLMAnalyzer()
+    print(f"\n[*] Running strict AI scoring on top candidates...")
+
+    # Sort by heuristic score first to prioritize best candidates
+    all_properties.sort(key=lambda x: x.investment_score, reverse=True)
+
+    # Analyze top 200 to keep runtime reasonable
+    for i, prop in enumerate(all_properties[:200]):
+        if (i + 1) % 25 == 0:
+            print(f"    Analyzing {i+1}/200...")
+
+        result = llm.analyze_property(prop.__dict__)
+        prop.llm_score = result['score']
+        prop.llm_reasoning = result['reasoning']
+
+        # Very conservative boost to avoid pushing everything to 10
+        if prop.llm_score >= 10:
+            prop.investment_score += 1
+        elif prop.llm_score >= 9:
+            prop.investment_score += 0.5
     
     # Deduplicate again (cross-location and cross-source)
     seen_ids = set()
@@ -300,8 +323,14 @@ def main():
     unique_properties = []
     
     for prop in all_properties:
-        pid = prop['id']
-        url = prop['url']
+        # Convert to dict if it's an object (LLM analysis keeps them as objects)
+        if hasattr(prop, '__dict__'):
+            prop_dict = prop.__dict__
+        else:
+            prop_dict = prop
+            
+        pid = prop_dict['id']
+        url = prop_dict['url']
         
         # Check both ID and URL for duplicates
         if pid in seen_ids:
