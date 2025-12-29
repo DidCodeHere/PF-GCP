@@ -978,7 +978,9 @@ class Scraper:
                 print(f"[!] Purplebricks Scraper Error: {e}")
                 return []
             finally:
-                browser.close() = "", radius: float = 0, max_price: int = 150000) -> List[Property]:
+                browser.close()
+
+    def search_sdl_auctions(self, location: str = "", radius: float = 0, max_price: int = 150000) -> List[Property]:
         """
         Search SDL Property Auctions.
         
@@ -1004,9 +1006,7 @@ class Scraper:
                     location_slug = location.lower().replace(' ', '+')
                     url = f"https://www.sdlauctions.co.uk/property-search/?location={location_slug}&price_max={max_price}"
                 else:
-                    url = f"https://www.sdlauctions.co.uk/property-search/?0000
-                location_slug = location.lower().replace(' ', '+')
-                url = f"https://www.sdlauctions.co.uk/property-search/?location={location_slug}&price_max={max_price}"
+                    url = f"https://www.sdlauctions.co.uk/property-search/?price_max={max_price}"
                 
                 print(f"   Navigating to {url}...")
                 page.goto(url, wait_until="domcontentloaded")
@@ -1081,7 +1081,12 @@ class Scraper:
                 return properties
 
             except Exception as e:
-                print(f"[!] SDL Auctions  = "", radius: float = 0, max_price: int = 150000) -> List[Property]:
+                print(f"[!] SDL Auctions Scraper Error: {e}")
+                return []
+            finally:
+                browser.close()
+
+    def search_allsop(self, location: str = "", radius: float = 0, max_price: int = 150000) -> List[Property]:
         """
         Search Allsop Auctions.
         
@@ -1107,12 +1112,7 @@ class Scraper:
                     location_slug = location.lower().replace(' ', '+')
                     url = f"https://www.allsop.co.uk/search-results/?keyword={location_slug}&price_to={max_price}&type=residential"
                 else:
-                    url = f"https://www.allsop.co.uk/search-results/?
-            try:
-                # Allsop URL structure - they have a search page
-                # https://www.allsop.co.uk/search-results/?keyword=liverpool&price_to=150000&type=residential
-                location_slug = location.lower().replace(' ', '+')
-                url = f"https://www.allsop.co.uk/search-results/?keyword={location_slug}&price_to={max_price}&type=residential"
+                    url = f"https://www.allsop.co.uk/search-results/?price_to={max_price}&type=residential"
                 
                 print(f"   Navigating to {url}...")
                 page.goto(url, wait_until="domcontentloaded")
